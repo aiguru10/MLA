@@ -284,13 +284,20 @@ const DOMUtils = {
      * @param {boolean} isHTML - Whether content is HTML
      */
     setContent(element, content, isHTML = false) {
-        if (!element) return;
+        if (!element) {
+            Utils.log('setContent: element is null');
+            return;
+        }
+        
+        Utils.log(`setContent: Setting ${isHTML ? 'HTML' : 'text'} content, length: ${content.length}`);
         
         if (isHTML) {
             element.innerHTML = content;
         } else {
             element.textContent = content;
         }
+        
+        Utils.log('setContent: Content set successfully');
     }
 };
 

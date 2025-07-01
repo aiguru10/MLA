@@ -566,14 +566,21 @@ const ServiceAnalysisController = {
         if (!container) return;
         
         const analysisHTML = this.generateAnalysisHTML();
+        Utils.log('Generated HTML length:', analysisHTML.length);
         
-        // Animate transition
+        // Temporarily disable animation to test if that's the issue
+        DOMUtils.setContent(container, analysisHTML, true);
+        this.setupNavigationHandlers();
+        
+        // Original animated version (commented out for testing)
+        /*
         UIController.animateOut(container, 'slideOutLeft', () => {
             DOMUtils.setContent(container, analysisHTML, true);
             // Re-setup event handlers after content update
             this.setupNavigationHandlers();
             UIController.animateIn(container, 'slideInRight');
         });
+        */
     },
     
     /**
