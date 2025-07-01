@@ -169,6 +169,10 @@ const QuizController = {
         const quizHTML = this.generateQuizHTML();
         DOMUtils.setContent(container, quizHTML, true);
         
+        Utils.log('Quiz HTML rendered, setting up initial handlers...');
+        // Setup initial question handlers
+        this.setupQuestionHandlers();
+        
         // Animate quiz entrance
         UIController.animateIn(container, 'slideInUp');
     },
@@ -435,13 +439,25 @@ const QuizController = {
     setupQuestionHandlers() {
         Utils.log('Setting up quiz question handlers...');
         
+        // Debug: Check if quiz content exists
+        const quizContent = DOMUtils.getElementById('quizContent');
+        Utils.log('Quiz content element:', quizContent ? 'found' : 'NOT FOUND');
+        
         // Setup answer option click handlers
         const options = DOMUtils.querySelectorAll('.quiz-option');
         Utils.log(`Found ${options.length} quiz options`);
         
-        options.forEach((option, index) => {
+        // Debug: Also try finding answer-option class (in case there's a mismatch)
+        const altOptions = DOMUtils.querySelectorAll('.answer-option');
+        Utils.log(`Found ${altOptions.length} answer-option elements`);
+        
+        // If no quiz-option found, try answer-option
+        const targetOptions = options.length > 0 ? options : altOptions;
+        Utils.log(`Using ${targetOptions.length} target options`);
+        
+        targetOptions.forEach((option, index) => {
             if (!option.disabled) {
-                Utils.log(`Setting up handler for option ${index}`);
+                Utils.log(`Setting up handler for option ${index}, classes: ${option.className}`);
                 DOMUtils.addEventListener(option, 'click', () => {
                     const optionIndex = parseInt(option.getAttribute('data-option-index'));
                     Utils.log(`Option clicked: ${optionIndex}`);
