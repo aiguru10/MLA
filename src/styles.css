@@ -762,8 +762,8 @@ body {
     margin: 0 0 15px 0;
     position: relative;
     z-index: 1;
-    color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: #ffffff !important;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8) !important;
 }
 
 .lesson-subtitle {
@@ -2740,12 +2740,7 @@ body {
     margin-bottom: 40px;
 }
 
-.lesson-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1a1a2e;
-    margin-bottom: 10px;
-}
+
 
 
 
