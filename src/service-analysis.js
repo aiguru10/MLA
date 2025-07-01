@@ -226,6 +226,8 @@ const ServiceAnalysisController = {
             Utils.log('Starting service analysis...');
             
             this.resetAnalysisState();
+            Utils.log(`State after reset: currentService=${this.state.currentService}, totalServices=${this.state.totalServices}`);
+            
             this.renderAnalysis();
             
             this.state.analysisActive = true;
@@ -303,9 +305,14 @@ const ServiceAnalysisController = {
      * @returns {string} Analysis HTML
      */
     generateAnalysisHTML() {
+        Utils.log(`Generating analysis HTML: currentService=${this.state.currentService}, servicesLength=${this.services.length}`);
+        
         if (this.state.currentService < this.services.length) {
-            return this.renderServiceCard(this.services[this.state.currentService]);
+            const service = this.services[this.state.currentService];
+            Utils.log(`Rendering service card for: ${service.name}`);
+            return this.renderServiceCard(service);
         } else {
+            Utils.log('Rendering decision guide');
             return this.renderDecisionGuide();
         }
     },

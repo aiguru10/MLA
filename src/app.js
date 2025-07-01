@@ -27,7 +27,7 @@ const AppConfig = {
     
     // Feature flags
     features: {
-        debugMode: false,
+        debugMode: true, // Enable debug mode to see logs
         analytics: false,
         serviceWorker: false
     },
