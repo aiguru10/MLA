@@ -389,11 +389,12 @@ body {
     text-align: center;
     margin-bottom: 40px;
     padding: 40px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
     border-radius: 15px;
     color: white;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .lesson-header::before {
@@ -403,7 +404,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    background: rgba(0, 0, 0, 0.1);
     opacity: 0.3;
 }
 
@@ -413,23 +414,29 @@ body {
     margin: 0 0 15px 0;
     position: relative;
     z-index: 1;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .lesson-subtitle {
     font-size: 1.2rem;
     font-weight: 400;
     margin: 0 0 20px 0;
-    opacity: 0.9;
     position: relative;
     z-index: 1;
+    color: #ecf0f1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    opacity: 1;
 }
 
 .hero-image {
     font-size: 4rem;
     margin-top: 20px;
-    opacity: 0.8;
     position: relative;
     z-index: 1;
+    color: #ecf0f1;
+    opacity: 0.9;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Learning Objectives */
@@ -615,47 +622,83 @@ body {
     padding: 40px;
 }
 
-/* Button Styles */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.btn:hover::before {
-    left: 100%;
-}
-
+/* Enhanced Button Styles with Better Contrast */
 .btn-primary {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    border: none;
+    font-weight: 600;
 }
 
 .btn-primary:hover {
+    background: linear-gradient(135deg, #2980b9, #1f618d);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+/* Section Headers with Better Contrast */
+.section-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Game Header with Better Readability */
+.game-header {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+}
+
+.game-header h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.game-header p {
+    margin: 0;
+    color: #ecf0f1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Quiz Header with Better Readability */
+.quiz-header {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+}
+
+.quiz-header h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-header p {
+    margin: 0;
+    color: #ecf0f1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary {
@@ -1296,7 +1339,7 @@ body {
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, #3498db, #2980b9);
     border-radius: 4px;
     transition: width 0.3s ease;
 }
@@ -1316,7 +1359,7 @@ body {
 }
 
 .progress-dot.current {
-    background: #667eea;
+    background: #3498db;
     transform: scale(1.2);
 }
 
