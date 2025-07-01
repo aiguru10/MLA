@@ -220,5 +220,5 @@ AppConfig.features.debugMode = true;
 
 ---
 
-**Built with ❤️ for AWS ML Academy**  
+**Built with ❤️ for MLA Tutorial**  
 *Version 2.0.0 - Modular Architecture*

@@ -1,11 +1,11 @@
 /**
- * AWS ML Academy - Interactive Learning Platform
+ * MLA Tutorial - Interactive Learning Platform
  * Main Application Entry Point
  * 
  * This file initializes the application and coordinates between different modules.
  * It follows the Module Pattern for better organization and maintainability.
  * 
- * @author AWS ML Academy Team
+ * @author MLA Tutorial Team
  * @version 2.0.0
  * @since 2025-07-01
  */
@@ -22,7 +22,7 @@
  */
 const AppConfig = {
     // Application metadata
-    name: 'AWS ML Academy',
+    name: 'MLA Tutorial',
     version: '2.0.0',
     
     // Feature flags
@@ -316,7 +316,7 @@ const AppInitializer = {
      */
     async init() {
         try {
-            Utils.log('Initializing AWS ML Academy application...');
+            Utils.log('Initializing MLA Tutorial application...');
             
             // Initialize core modules in order
             await this.initializeCore();
