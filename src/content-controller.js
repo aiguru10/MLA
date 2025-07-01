@@ -210,7 +210,7 @@ const ContentController = {
                         
                         <div id="serviceAnalysisContainer">
                             <div style="text-align: center; padding: 40px;">
-                                <button class="btn btn-primary" onclick="ServiceAnalysisController.start()" style="font-size: 18px; padding: 15px 30px;">
+                                <button class="btn btn-primary start-service-analysis" style="font-size: 18px; padding: 15px 30px;">
                                     <i class="fas fa-play" aria-hidden="true"></i> Start Service Analysis
                                 </button>
                             </div>
@@ -234,7 +234,7 @@ const ContentController = {
                         
                         <div id="puzzleGameContainer">
                             <div style="text-align: center; padding: 40px;">
-                                <button class="btn btn-primary" onclick="PuzzleGameController.start()" style="font-size: 18px; padding: 15px 30px;">
+                                <button class="btn btn-primary start-puzzle-game" style="font-size: 18px; padding: 15px 30px;">
                                     <i class="fas fa-play" aria-hidden="true"></i> Start Puzzle Game
                                 </button>
                             </div>
@@ -258,7 +258,7 @@ const ContentController = {
                         
                         <div id="quizContainer">
                             <div style="text-align: center; padding: 40px;">
-                                <button class="btn btn-primary" onclick="QuizController.start()" style="font-size: 18px; padding: 15px 30px;">
+                                <button class="btn btn-primary start-quiz" style="font-size: 18px; padding: 15px 30px;">
                                     <i class="fas fa-play" aria-hidden="true"></i> Start Interactive Quiz
                                 </button>
                             </div>
@@ -360,23 +360,115 @@ const ContentController = {
      * Initialize interactive components after content load
      */
     async initializeInteractiveComponents() {
+        // Wait a bit for all modules to be loaded
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
         // Initialize service analysis if available
         if (typeof ServiceAnalysisController !== 'undefined') {
             ServiceAnalysisController.init();
+        } else {
+            Utils.log('ServiceAnalysisController not available');
         }
         
         // Initialize puzzle game if available
         if (typeof PuzzleGameController !== 'undefined') {
             PuzzleGameController.init();
+        } else {
+            Utils.log('PuzzleGameController not available');
         }
         
         // Initialize quiz if available
         if (typeof QuizController !== 'undefined') {
             QuizController.init();
+        } else {
+            Utils.log('QuizController not available');
         }
         
         // Add hover effects to storage cards
         this.initializeStorageCards();
+        
+        // Set up button click handlers with error handling
+        this.setupInteractiveButtons();
+    },
+    
+    /**
+     * Setup interactive button handlers with error checking
+     */
+    setupInteractiveButtons() {
+        // Service Analysis button
+        const serviceAnalysisBtn = DOMUtils.querySelector('.start-service-analysis');
+        if (serviceAnalysisBtn) {
+            DOMUtils.addEventListener(serviceAnalysisBtn, 'click', () => {
+                this.startServiceAnalysis();
+            });
+        }
+        
+        // Puzzle Game button
+        const puzzleGameBtn = DOMUtils.querySelector('.start-puzzle-game');
+        if (puzzleGameBtn) {
+            DOMUtils.addEventListener(puzzleGameBtn, 'click', () => {
+                this.startPuzzleGame();
+            });
+        }
+        
+        // Quiz button
+        const quizBtn = DOMUtils.querySelector('.start-quiz');
+        if (quizBtn) {
+            DOMUtils.addEventListener(quizBtn, 'click', () => {
+                this.startQuiz();
+            });
+        }
+    },
+    
+    /**
+     * Start service analysis with error handling
+     */
+    startServiceAnalysis() {
+        try {
+            if (typeof ServiceAnalysisController !== 'undefined') {
+                ServiceAnalysisController.start();
+            } else {
+                UIController.showErrorMessage('Service Analysis is not available. Please refresh the page.');
+                Utils.log('ServiceAnalysisController not loaded');
+            }
+        } catch (error) {
+            console.error('Error starting service analysis:', error);
+            UIController.showErrorMessage('Failed to start Service Analysis. Please try again.');
+        }
+    },
+    
+    /**
+     * Start puzzle game with error handling
+     */
+    startPuzzleGame() {
+        try {
+            if (typeof PuzzleGameController !== 'undefined') {
+                PuzzleGameController.start();
+            } else {
+                UIController.showErrorMessage('Puzzle Game is not available. Please refresh the page.');
+                Utils.log('PuzzleGameController not loaded');
+            }
+        } catch (error) {
+            console.error('Error starting puzzle game:', error);
+            UIController.showErrorMessage('Failed to start Puzzle Game. Please try again.');
+        }
+    },
+    
+    /**
+     * Start quiz with error handling
+     */
+    startQuiz() {
+        try {
+            if (typeof QuizController !== 'undefined') {
+                QuizController.start();
+            } else {
+                UIController.showErrorMessage('Quiz is not available. Please refresh the page.');
+                Utils.log('QuizController not loaded');
+            }
+        } catch (error) {
+            console.error('Error starting quiz:', error);
+            UIController.showErrorMessage('Failed to start Quiz. Please try again.');
+        }
     },
     
     /**

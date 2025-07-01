@@ -416,9 +416,42 @@ const AppInitializer = {
     async loadDefaultContent() {
         Utils.log('Loading default content...');
         
+        // Wait for all controllers to be loaded
+        await this.waitForControllers();
+        
         if (typeof ContentController !== 'undefined') {
             ContentController.loadContent(AppConfig.content.defaultTopic);
         }
+    },
+    
+    /**
+     * Wait for all controllers to be available
+     */
+    async waitForControllers() {
+        const maxWait = 5000; // 5 seconds max
+        const checkInterval = 100; // Check every 100ms
+        let waited = 0;
+        
+        while (waited < maxWait) {
+            const controllersReady = [
+                'NavigationController',
+                'UIController', 
+                'ContentController',
+                'ServiceAnalysisController',
+                'PuzzleGameController',
+                'QuizController'
+            ].every(controller => typeof window[controller] !== 'undefined');
+            
+            if (controllersReady) {
+                Utils.log('All controllers loaded successfully');
+                return;
+            }
+            
+            await new Promise(resolve => setTimeout(resolve, checkInterval));
+            waited += checkInterval;
+        }
+        
+        Utils.log('Warning: Some controllers may not have loaded properly');
     },
     
     /**
