@@ -236,8 +236,7 @@ const QuizController = {
                 
                 <!-- Navigation Controls -->
                 <div class="quiz-navigation">
-                    <button class="btn btn-secondary" 
-                            onclick="QuizController.previousQuestion()" 
+                    <button class="btn btn-secondary quiz-prev-btn" 
                             ${this.state.currentQuestion === 0 ? 'disabled' : ''}>
                         <i class="fas fa-chevron-left" aria-hidden="true"></i> Previous
                     </button>
@@ -246,8 +245,7 @@ const QuizController = {
                         <span class="current-position">${this.state.currentQuestion + 1} / ${this.state.totalQuestions}</span>
                     </div>
                     
-                    <button class="btn btn-primary" 
-                            onclick="${this.state.currentQuestion === this.state.totalQuestions - 1 ? 'QuizController.finishQuiz()' : 'QuizController.nextQuestion()'}">
+                    <button class="btn btn-primary quiz-next-btn">
                         ${this.state.currentQuestion === this.state.totalQuestions - 1 ? 
                             '<i class="fas fa-flag-checkered" aria-hidden="true"></i> Finish Quiz' : 
                             'Next <i class="fas fa-chevron-right" aria-hidden="true"></i>'}
@@ -283,13 +281,12 @@ const QuizController = {
         }
         
         const isDisabled = hasAnswered ? 'disabled' : '';
-        const clickHandler = hasAnswered ? '' : `onclick="QuizController.selectAnswer(${index})"`;
+        const clickHandler = hasAnswered ? '' : `data-option-index="${index}"`;
         
         return `
-            <button class="${optionClass}" 
+            <button class="${optionClass} quiz-option" 
                     ${clickHandler} 
                     ${isDisabled}
-                    data-option-index="${index}"
                     aria-label="Option ${String.fromCharCode(65 + index)}: ${option}">
                 <div class="option-content">
                     <span class="option-letter">${String.fromCharCode(65 + index)}</span>
@@ -410,12 +407,56 @@ const QuizController = {
         if (!container) return;
         
         const questionHTML = this.renderCurrentQuestion();
+        Utils.log('Quiz: Generated question HTML length:', questionHTML.length);
         
-        // Animate transition
+        // Direct content update without animation conflicts
+        DOMUtils.setContent(container, questionHTML, true);
+        this.setupQuestionHandlers();
+        
+        // Original animated version (commented out to fix blank screen issue)
+        /*
         UIController.animateOut(container, 'fadeOut', () => {
             DOMUtils.setContent(container, questionHTML, true);
             UIController.animateIn(container, 'fadeIn');
         });
+        */
+    },
+    
+    /**
+     * Setup question event handlers
+     */
+    setupQuestionHandlers() {
+        // Setup answer option click handlers
+        const options = DOMUtils.querySelectorAll('.quiz-option');
+        options.forEach(option => {
+            if (!option.disabled) {
+                DOMUtils.addEventListener(option, 'click', () => {
+                    const optionIndex = parseInt(option.getAttribute('data-option-index'));
+                    if (!isNaN(optionIndex)) {
+                        this.selectAnswer(optionIndex);
+                    }
+                });
+            }
+        });
+        
+        // Setup navigation button handlers
+        const prevBtn = DOMUtils.querySelector('.quiz-prev-btn');
+        if (prevBtn && !prevBtn.disabled) {
+            DOMUtils.addEventListener(prevBtn, 'click', () => {
+                this.previousQuestion();
+            });
+        }
+        
+        const nextBtn = DOMUtils.querySelector('.quiz-next-btn');
+        if (nextBtn) {
+            DOMUtils.addEventListener(nextBtn, 'click', () => {
+                if (this.state.currentQuestion === this.state.totalQuestions - 1) {
+                    this.finishQuiz();
+                } else {
+                    this.nextQuestion();
+                }
+            });
+        }
     },
     
     /**
