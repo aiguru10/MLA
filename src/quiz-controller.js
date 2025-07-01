@@ -346,19 +346,26 @@ const QuizController = {
      * @param {number} answerIndex - Index of selected answer
      */
     selectAnswer(answerIndex) {
+        Utils.log(`selectAnswer called with index: ${answerIndex}`);
+        
         if (this.state.answers.hasOwnProperty(this.state.currentQuestion)) {
             Utils.log('Question already answered');
             return;
         }
         
         const question = this.questions[this.state.currentQuestion];
+        Utils.log(`Question: ${question.question}`);
         
         // Store the answer
         this.state.answers[this.state.currentQuestion] = answerIndex;
+        Utils.log(`Answer stored: question ${this.state.currentQuestion} = option ${answerIndex}`);
         
         // Update score if correct
         if (answerIndex === question.correct) {
             this.state.score++;
+            Utils.log('Answer is correct! Score updated.');
+        } else {
+            Utils.log('Answer is incorrect.');
         }
         
         // Re-render the current question to show feedback
@@ -426,12 +433,18 @@ const QuizController = {
      * Setup question event handlers
      */
     setupQuestionHandlers() {
+        Utils.log('Setting up quiz question handlers...');
+        
         // Setup answer option click handlers
         const options = DOMUtils.querySelectorAll('.quiz-option');
-        options.forEach(option => {
+        Utils.log(`Found ${options.length} quiz options`);
+        
+        options.forEach((option, index) => {
             if (!option.disabled) {
+                Utils.log(`Setting up handler for option ${index}`);
                 DOMUtils.addEventListener(option, 'click', () => {
                     const optionIndex = parseInt(option.getAttribute('data-option-index'));
+                    Utils.log(`Option clicked: ${optionIndex}`);
                     if (!isNaN(optionIndex)) {
                         this.selectAnswer(optionIndex);
                     }
@@ -442,14 +455,18 @@ const QuizController = {
         // Setup navigation button handlers
         const prevBtn = DOMUtils.querySelector('.quiz-prev-btn');
         if (prevBtn && !prevBtn.disabled) {
+            Utils.log('Setting up previous button handler');
             DOMUtils.addEventListener(prevBtn, 'click', () => {
+                Utils.log('Previous button clicked');
                 this.previousQuestion();
             });
         }
         
         const nextBtn = DOMUtils.querySelector('.quiz-next-btn');
         if (nextBtn) {
+            Utils.log('Setting up next button handler');
             DOMUtils.addEventListener(nextBtn, 'click', () => {
+                Utils.log('Next button clicked');
                 if (this.state.currentQuestion === this.state.totalQuestions - 1) {
                     this.finishQuiz();
                 } else {
