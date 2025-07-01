@@ -262,8 +262,40 @@ const ServiceAnalysisController = {
         const analysisHTML = this.generateAnalysisHTML();
         DOMUtils.setContent(container, analysisHTML, true);
         
+        // Setup event listeners after rendering
+        this.setupNavigationHandlers();
+        
         // Animate analysis entrance
         UIController.animateIn(container, 'slideInUp');
+    },
+    
+    /**
+     * Setup navigation event handlers
+     */
+    setupNavigationHandlers() {
+        // Previous button
+        const prevBtn = DOMUtils.querySelector('.analysis-prev-btn');
+        if (prevBtn) {
+            DOMUtils.addEventListener(prevBtn, 'click', () => {
+                this.previous();
+            });
+        }
+        
+        // Next button
+        const nextBtn = DOMUtils.querySelector('.analysis-next-btn');
+        if (nextBtn) {
+            DOMUtils.addEventListener(nextBtn, 'click', () => {
+                this.next();
+            });
+        }
+        
+        // Complete button
+        const completeBtn = DOMUtils.querySelector('.analysis-complete-btn');
+        if (completeBtn) {
+            DOMUtils.addEventListener(completeBtn, 'click', () => {
+                this.complete();
+            });
+        }
     },
     
     /**
@@ -336,8 +368,7 @@ const ServiceAnalysisController = {
                 
                 <!-- Navigation Controls -->
                 <div class="analysis-navigation">
-                    <button class="btn btn-secondary" 
-                            onclick="ServiceAnalysisController.previous()" 
+                    <button class="btn btn-secondary analysis-prev-btn" 
                             ${this.state.currentService === 0 ? 'disabled' : ''}>
                         <i class="fas fa-chevron-left" aria-hidden="true"></i> Previous
                     </button>
@@ -351,7 +382,7 @@ const ServiceAnalysisController = {
                         </div>
                     </div>
                     
-                    <button class="btn btn-primary" onclick="ServiceAnalysisController.next()">
+                    <button class="btn btn-primary analysis-next-btn">
                         ${this.state.currentService === this.state.totalServices - 1 ? 
                             '<i class="fas fa-flag-checkered" aria-hidden="true"></i> Finish' : 
                             'Next <i class="fas fa-chevron-right" aria-hidden="true"></i>'}
@@ -379,7 +410,7 @@ const ServiceAnalysisController = {
                 
                 <!-- Navigation Controls -->
                 <div class="analysis-navigation">
-                    <button class="btn btn-secondary" onclick="ServiceAnalysisController.previous()">
+                    <button class="btn btn-secondary analysis-prev-btn">
                         <i class="fas fa-chevron-left" aria-hidden="true"></i> Previous
                     </button>
                     
@@ -392,7 +423,7 @@ const ServiceAnalysisController = {
                         </div>
                     </div>
                     
-                    <button class="btn btn-success" onclick="ServiceAnalysisController.complete()">
+                    <button class="btn btn-success analysis-complete-btn">
                         <i class="fas fa-check" aria-hidden="true"></i> Complete Analysis
                     </button>
                 </div>
@@ -497,10 +528,16 @@ const ServiceAnalysisController = {
      * Move to next service/step
      */
     next() {
+        Utils.log(`Next clicked: current=${this.state.currentService}, total=${this.state.totalServices}`);
+        
         if (this.state.currentService < this.state.totalServices - 1) {
             this.state.viewHistory.push(this.state.currentService);
             this.state.currentService++;
+            Utils.log(`Moving to service ${this.state.currentService}`);
             this.updateAnalysisDisplay();
+        } else {
+            Utils.log('At last service, should complete');
+            this.complete();
         }
     },
     
@@ -526,6 +563,8 @@ const ServiceAnalysisController = {
         // Animate transition
         UIController.animateOut(container, 'slideOutLeft', () => {
             DOMUtils.setContent(container, analysisHTML, true);
+            // Re-setup event handlers after content update
+            this.setupNavigationHandlers();
             UIController.animateIn(container, 'slideInRight');
         });
     },
