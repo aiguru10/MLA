@@ -13,7 +13,6 @@ This folder contains all the source code for the Machine Learning Academy (MLA) 
   - Interactive drag & drop puzzle game
   - Navigable quiz system with immediate feedback
   - Sidebar navigation and content loading
-- **script.js** - Legacy JavaScript file (backup/reference)
 
 ### CSS Files
 - **styles.css** - Complete stylesheet for the application
@@ -55,7 +54,6 @@ To run the application:
 
 ## Development Notes
 
-- **script-clean.js** is the active JavaScript file
-- **script.js** is kept for reference/backup purposes
+- **script-clean.js** is the active JavaScript file with all functionality
 - Responsive design works on mobile and desktop
 - No external dependencies beyond CDN resources
