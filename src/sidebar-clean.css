@@ -1,0 +1,265 @@
+/* Modern Professional Sidebar - Clean Design */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: #fafbfc;
+    color: #1a202c;
+    transition: width 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-right: 1px solid #e2e8f0;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a202c;
+    transition: opacity 0.3s ease;
+}
+
+.logo i {
+    font-size: 20px;
+    color: #4f46e5;
+    flex-shrink: 0;
+}
+
+/* Navigation Sections */
+.nav-section {
+    margin: 0;
+}
+
+.nav-section-header {
+    padding: 12px 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    color: #374151 !important;
+    background: transparent !important;
+    border: none !important;
+    width: 100% !important;
+    text-align: left !important;
+    position: relative !important;
+    margin: 0 !important;
+}
+
+.nav-section-header:hover {
+    background: #f1f5f9 !important;
+    color: #1e293b !important;
+}
+
+.nav-section-header i:first-child {
+    width: 16px !important;
+    text-align: center !important;
+    color: #64748b !important;
+    font-size: 14px !important;
+}
+
+.nav-section-header:hover i:first-child {
+    color: #4f46e5 !important;
+}
+
+.toggle-icon {
+    margin-left: auto !important;
+    color: #94a3b8 !important;
+    font-size: 12px !important;
+    transition: transform 0.2s ease !important;
+}
+
+.nav-section-header[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg) !important;
+}
+
+/* Task Headers */
+.nav-task {
+    margin: 0;
+}
+
+.nav-task-header {
+    padding: 10px 20px 10px 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #4b5563 !important;
+    background: transparent !important;
+    border: none !important;
+    width: calc(100% - 16px) !important;
+    text-align: left !important;
+    border-radius: 6px !important;
+    margin: 1px 8px !important;
+}
+
+.nav-task-header:hover {
+    background: #f8fafc !important;
+    color: #1e293b !important;
+}
+
+.nav-task-header i:first-child {
+    width: 14px !important;
+    text-align: center !important;
+    color: #94a3b8 !important;
+    font-size: 12px !important;
+}
+
+.nav-task-header:hover i:first-child {
+    color: #6366f1 !important;
+}
+
+/* Navigation Links */
+.nav-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 8px 20px 8px 52px !important;
+    color: #6b7280 !important;
+    text-decoration: none !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    transition: all 0.15s ease !important;
+    position: relative !important;
+    border-radius: 6px !important;
+    margin: 1px 8px !important;
+    width: calc(100% - 16px) !important;
+}
+
+.nav-link:hover {
+    background: #f1f5f9 !important;
+    color: #374151 !important;
+}
+
+.nav-link.active {
+    background: #eef2ff !important;
+    color: #4338ca !important;
+    font-weight: 500 !important;
+    position: relative !important;
+}
+
+.nav-link.active::before {
+    content: '' !important;
+    position: absolute !important;
+    left: -8px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 3px !important;
+    height: 16px !important;
+    background: #4f46e5 !important;
+    border-radius: 2px !important;
+}
+
+.nav-link i:first-child {
+    width: 12px !important;
+    text-align: center !important;
+    color: #94a3b8 !important;
+    font-size: 11px !important;
+}
+
+.nav-link:hover i:first-child {
+    color: #6b7280 !important;
+}
+
+.nav-link.active i:first-child {
+    color: #4f46e5 !important;
+}
+
+/* Coming Soon States */
+.nav-section-header.coming-soon,
+.nav-task-header.coming-soon,
+.nav-link.coming-soon {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+}
+
+.nav-section-header.coming-soon:hover,
+.nav-task-header.coming-soon:hover,
+.nav-link.coming-soon:hover {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+/* Badge Styling */
+.badge {
+    background: #f59e0b !important;
+    color: white !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    margin-left: auto !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Section Content Animation */
+.nav-section-content {
+    overflow: hidden !important;
+    transition: all 0.2s ease !important;
+    background: transparent !important;
+}
+
+.nav-section-content[aria-hidden="true"] {
+    max-height: 0 !important;
+    opacity: 0 !important;
+}
+
+.nav-section-content[aria-hidden="false"] {
+    max-height: 500px !important;
+    opacity: 1 !important;
+}
+
+.nav-task-content {
+    overflow: hidden !important;
+    transition: all 0.2s ease !important;
+    background: transparent !important;
+}
+
+.nav-task-content[aria-hidden="true"] {
+    max-height: 0 !important;
+    opacity: 0 !important;
+}
+
+.nav-task-content[aria-hidden="false"] {
+    max-height: 300px !important;
+    opacity: 1 !important;
+}
+
+/* Clean Scrollbar */
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
