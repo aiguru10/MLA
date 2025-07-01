@@ -19,13 +19,14 @@ body {
     top: 0;
     width: 320px;
     height: 100vh;
-    background: #1a1a2e;
+    background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%);
     color: white;
     transition: width 0.3s ease;
     z-index: 1000;
     overflow-y: auto;
     overflow-x: hidden;
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sidebar.collapsed {
@@ -33,12 +34,12 @@ body {
 }
 
 .sidebar-header {
-    padding: 20px;
-    background: #16213e;
+    padding: 25px 20px;
+    background: rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #2a2a4a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     white-space: nowrap;
 }
 
@@ -102,15 +103,22 @@ body {
 }
 
 .nav-section-header {
-    padding: 12px 20px;
+    padding: 16px 20px;
     display: flex;
     align-items: center;
     gap: 12px;
     cursor: pointer;
-    transition: all 0.2s;
-    font-weight: 500;
+    transition: all 0.3s ease;
+    font-weight: 600;
     position: relative;
     white-space: nowrap;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+    text-align: left;
+    margin: 2px 0;
 }
 
 .sidebar.collapsed .nav-section-header {
@@ -129,7 +137,8 @@ body {
 }
 
 .nav-section-header:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
 }
 
 .sidebar.collapsed .nav-section-header:hover {
@@ -200,23 +209,28 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 8px 20px 8px 60px;
-    color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px 10px 84px;
+    color: #cbd5e1;
     text-decoration: none;
-    font-size: 13px;
-    transition: all 0.2s;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
     position: relative;
+    border-radius: 0;
+    margin: 1px 0;
 }
 
 .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.06);
     color: white;
+    transform: translateX(4px);
 }
 
 .nav-link.active {
-    background-color: #ff9500;
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
     color: white;
     font-weight: 500;
+    border-left: 3px solid #3b82f6;
 }
 
 .nav-link.coming-soon {
