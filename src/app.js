@@ -355,6 +355,16 @@ const AppInitializer = {
         if (typeof ContentController !== 'undefined') {
             ContentController.init();
         }
+        
+        // Initialize page controller for multi-page navigation
+        if (typeof PageController !== 'undefined') {
+            window.pageController = new PageController();
+            await window.pageController.init({
+                taskId: '1.1',
+                topicId: '1',
+                title: 'Extracting Data from AWS Storage'
+            });
+        }
     },
     
     /**
