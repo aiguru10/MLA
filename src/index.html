@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS ML Engineer Certification - Middle School Edition</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fab fa-aws"></i>
+                <span>AWS ML Academy</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <!-- Domain 1: Data Preparation -->
+            <div class="nav-section">
+                <div class="nav-section-header tooltip" data-tooltip="Data Preparation for Machine Learning" onclick="toggleSection('domain1')">
+                    <i class="fas fa-database"></i>
+                    <span>Domain 1: Data Preparation</span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="nav-section-content" id="domain1">
+                    <!-- Task 1.1 -->
+                    <div class="nav-task">
+                        <div class="nav-task-header tooltip" data-tooltip="Ingest and Store Data" onclick="toggleTask('task11')">
+                            <i class="fas fa-download"></i>
+                            <span>Task 1.1: Ingest and Store Data</span>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="nav-task-content" id="task11">
+                            <a href="#" class="nav-link active tooltip" data-tooltip="Extracting Data from Storage" onclick="loadContent('task11-topic1')">
+                                <i class="fas fa-circle-dot"></i>
+                                Topic 1: Extracting Data from Storage
+                            </a>
+                            <a href="#" class="nav-link coming-soon tooltip" data-tooltip="Coming Soon" onclick="showComingSoon()">
+                                <i class="fas fa-circle-dot"></i>
+                                Topic 2: Data Formats
+                                <span class="badge">Soon</span>
+                            </a>
+                            <a href="#" class="nav-link coming-soon tooltip" data-tooltip="Coming Soon" onclick="showComingSoon()">
+                                <i class="fas fa-circle-dot"></i>
+                                Topic 3: SageMaker Ingestion
+                                <span class="badge">Soon</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Task 1.2 -->
+                    <div class="nav-task">
+                        <div class="nav-task-header coming-soon tooltip" data-tooltip="Coming Soon" onclick="showComingSoon()">
+                            <i class="fas fa-cogs"></i>
+                            <span>Task 1.2: Transform Data</span>
+                            <span class="badge">Soon</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Task 1.3 -->
+                    <div class="nav-task">
+                        <div class="nav-task-header coming-soon tooltip" data-tooltip="Coming Soon" onclick="showComingSoon()">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Task 1.3: Data Integrity</span>
+                            <span class="badge">Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Domain 2: ML Model Development -->
+            <div class="nav-section">
+                <div class="nav-section-header coming-soon tooltip" data-tooltip="Coming Soon" onclick="showComingSoon()">
+                    <i class="fas fa-brain"></i>
+                    <span>Domain 2: ML Model Development</span>
+                    <span class="badge">Soon</span>
+                </div>
+            </div>
+            
+            <!-- Domain 3: Deployment -->
+            <div class="nav-section">
+                <div class="nav-section-header coming-soon tooltip" data-tooltip="Coming Soon" onclick="showComingSoon()">
+                    <i class="fas fa-rocket"></i>
+                    <span>Domain 3: Deployment & Orchestration</span>
+                    <span class="badge">Soon</span>
+                </div>
+            </div>
+            
+            <!-- Domain 4: Monitoring -->
+            <div class="nav-section">
+                <div class="nav-section-header coming-soon tooltip" data-tooltip="Coming Soon" onclick="showComingSoon()">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Domain 4: Monitoring & Security</span>
+                    <span class="badge">Soon</span>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Expand button for collapsed sidebar -->
+        <button class="expand-btn" id="expandBtn" onclick="toggleSidebar()">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="content-header">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="breadcrumb">
+                <span id="breadcrumbText">Domain 1 > Task 1.1 > Topic 1: Extracting Data from Storage</span>
+            </div>
+        </div>
+        
+        <div class="content-body" id="contentBody">
+            <!-- Content will be loaded here -->
+        </div>
+    </div>
+    
+    <!-- Coming Soon Modal -->
+    <div class="modal" id="comingSoonModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-rocket"></i> Coming Soon!</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>This section is under development and will be available soon. We're building this course one task at a time to ensure the best learning experience!</p>
+                <div class="modal-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script-clean.js"></script>
+</body>
+</html>
