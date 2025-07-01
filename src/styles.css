@@ -424,8 +424,8 @@ body {
     margin: 0 0 20px 0;
     position: relative;
     z-index: 1;
-    color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
     opacity: 0.95;
 }
 
@@ -2399,11 +2399,7 @@ body {
     margin-bottom: 10px;
 }
 
-.lesson-subtitle {
-    font-size: 1.2rem;
-    color: #666;
-    font-weight: 400;
-}
+
 
 .section {
     background: white;
