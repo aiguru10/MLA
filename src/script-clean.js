@@ -256,7 +256,6 @@ function loadTask11Topic1() {
     const content = `
         <div class="lesson-header">
             <h1 class="lesson-title">Extracting Data from AWS Storage</h1>
-            <p style="font-size: 1.2rem; color: #667eea; font-weight: 600; margin: 10px 0;">Hello World</p>
             <p class="lesson-subtitle">Learn how to gather data from different AWS storage services for your ML projects</p>
             <div class="hero-image">
                 <i class="fas fa-database"></i>
