@@ -59,13 +59,13 @@ const ContentController = {
      */
     initializeElements() {
         this.elements = {
-            contentBody: DOMUtils.getElementById('contentBody'),
+            contentBody: DOMUtils.getElementById('pageContent'),
             breadcrumbText: DOMUtils.getElementById('breadcrumbText')
         };
         
         // Validate critical elements
         if (!this.elements.contentBody) {
-            throw new Error('Content body element not found');
+            throw new Error('Page content element not found');
         }
     },
     
