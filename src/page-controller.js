@@ -166,7 +166,7 @@ class PageController {
                     <div class="interactive-container">
                         <div class="interactive-header">
                             <h2>🔍 Interactive Service Analysis</h2>
-                            <p>Explore AWS storage services by clicking on each service to learn about its characteristics and use cases.</p>
+                            <p>Explore AWS storage services in detail. Use the navigation buttons to move between different services and learn about their features, use cases, and pricing.</p>
                         </div>
                         <div id="serviceAnalysisContainer" class="service-analysis-container">
                             <!-- Service Analysis will be loaded here -->
@@ -175,16 +175,17 @@ class PageController {
                 `;
                 DOMUtils.setContent(container, analysisHTML, true);
                 
-                // Initialize Service Analysis if available
-                if (window.ServiceAnalysis && typeof ServiceAnalysis.init === 'function') {
+                // Initialize Interactive Service Analysis
+                if (window.InteractiveServiceAnalysis) {
                     try {
-                        await ServiceAnalysis.init();
+                        const serviceAnalysis = new InteractiveServiceAnalysis();
+                        await serviceAnalysis.init();
                     } catch (error) {
-                        Utils.error('Failed to initialize Service Analysis:', error);
-                        this.renderFallbackContent(container, 'Service Analysis', 'This interactive component is being prepared for you.');
+                        Utils.error('Failed to initialize Interactive Service Analysis:', error);
+                        this.renderFallbackContent(container, 'Interactive Service Analysis', 'This interactive component is being prepared for you.');
                     }
                 } else {
-                    this.renderFallbackContent(container, 'Interactive Service Analysis', 'Click on different AWS storage services to explore their features, pricing models, and ideal use cases for machine learning projects.');
+                    this.renderFallbackContent(container, 'Interactive Service Analysis', 'Click through different AWS storage services to explore their features, pricing models, and ideal use cases for machine learning projects.');
                 }
                 break;
 
