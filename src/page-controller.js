@@ -194,7 +194,7 @@ class PageController {
                     <div class="interactive-container">
                         <div class="interactive-header">
                             <h2>🧩 Drag & Drop Challenge</h2>
-                            <p>Match AWS storage services with their appropriate use cases by dragging and dropping them into the correct categories.</p>
+                            <p>Test your knowledge by matching AWS storage services with their ideal use cases. Drag services from the left panel and drop them onto the correct use cases on the right.</p>
                         </div>
                         <div id="puzzleGameContainer" class="puzzle-game-container">
                             <!-- Puzzle Game will be loaded here -->
@@ -203,13 +203,14 @@ class PageController {
                 `;
                 DOMUtils.setContent(container, puzzleHTML, true);
                 
-                // Initialize Puzzle Game if available
-                if (window.PuzzleGame && typeof PuzzleGame.init === 'function') {
+                // Initialize Interactive Puzzle
+                if (window.InteractivePuzzle) {
                     try {
-                        await PuzzleGame.init();
+                        const puzzle = new InteractivePuzzle();
+                        await puzzle.init();
                     } catch (error) {
-                        Utils.error('Failed to initialize Puzzle Game:', error);
-                        this.renderFallbackContent(container, 'Puzzle Game', 'This interactive puzzle is being prepared for you.');
+                        Utils.error('Failed to initialize Interactive Puzzle:', error);
+                        this.renderFallbackContent(container, 'Interactive Puzzle', 'This drag-and-drop challenge is being prepared for you.');
                     }
                 } else {
                     this.renderFallbackContent(container, 'Interactive Puzzle Challenge', 'Drag and drop AWS storage services to match them with their ideal use cases and characteristics.');
