@@ -4,12 +4,12 @@
 .page-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     color: white;
-    padding: 35px 40px;
-    border-radius: 20px;
-    margin-bottom: 30px;
+    padding: 20px 30px;
+    border-radius: 15px;
+    margin-bottom: 25px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.25);
 }
 
 .page-header::before {
@@ -35,9 +35,9 @@
 .page-header::after {
     content: '✨';
     position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 2rem;
+    top: 15px;
+    right: 25px;
+    font-size: 1.5rem;
     animation: sparkle 2s ease-in-out infinite;
 }
 
@@ -50,8 +50,8 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
     position: relative;
     z-index: 1;
     opacity: 0.9;
@@ -64,8 +64,8 @@
 .clickable-breadcrumb {
     color: #ffffff !important;
     cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 8px;
+    padding: 3px 8px;
+    border-radius: 6px;
     transition: all 0.3s ease;
     position: relative;
     font-weight: 600;
@@ -75,18 +75,18 @@
     background: rgba(255, 255, 255, 0.2);
     color: #ffffff !important;
     transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .clickable-breadcrumb:active {
     transform: translateY(0px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .clickable-breadcrumb::before {
     content: '🏠';
-    margin-right: 8px;
-    font-size: 0.9rem;
+    margin-right: 6px;
+    font-size: 0.8rem;
 }
 
 .breadcrumb-separator {
@@ -95,9 +95,9 @@
 }
 
 .page-title {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    margin: 0 0 20px 0;
+    margin: 0 0 12px 0;
     position: relative;
     z-index: 1;
     color: #ffffff;
@@ -107,29 +107,29 @@
 .page-progress {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     position: relative;
     z-index: 1;
 }
 
 .progress-text {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #ecf0f1;
     font-weight: 500;
 }
 
 .progress-bar {
     flex: 1;
-    height: 6px;
+    height: 4px;
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
+    border-radius: 2px;
     overflow: hidden;
 }
 
 .progress-fill {
     height: 100%;
     background: linear-gradient(90deg, #ffffff, #ecf0f1);
-    border-radius: 3px;
+    border-radius: 2px;
     transition: width 0.5s ease;
 }
 
@@ -838,11 +838,11 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .page-header {
-        padding: 20px 25px;
+        padding: 15px 20px;
     }
     
     .page-title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
     
     .content-section {
@@ -875,14 +875,24 @@
 }
 
 @media (max-width: 480px) {
+    .page-header {
+        padding: 12px 15px;
+    }
+    
     .page-breadcrumb {
         flex-direction: column;
         align-items: flex-start;
         gap: 5px;
+        margin-bottom: 8px;
     }
     
     .breadcrumb-separator {
         display: none;
+    }
+    
+    .page-title {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
     }
     
     .objective-item {
@@ -891,7 +901,7 @@
     }
     
     .progress-text {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
     
     .interactive-container {
