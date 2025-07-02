@@ -222,7 +222,7 @@ class PageController {
                     <div class="interactive-container">
                         <div class="interactive-header">
                             <h2>❓ Knowledge Check Quiz</h2>
-                            <p>Test your understanding of AWS storage services with this comprehensive quiz.</p>
+                            <p>Test your understanding of AWS storage services with 8 comprehensive questions. Each question includes detailed explanations to reinforce your learning.</p>
                         </div>
                         <div id="quizContainer" class="quiz-container">
                             <!-- Quiz will be loaded here -->
@@ -231,12 +231,13 @@ class PageController {
                 `;
                 DOMUtils.setContent(container, quizHTML, true);
                 
-                // Initialize Quiz if available
-                if (window.QuizController && typeof QuizController.init === 'function') {
+                // Initialize Interactive Quiz
+                if (window.InteractiveQuiz) {
                     try {
-                        await QuizController.init();
+                        const quiz = new InteractiveQuiz();
+                        await quiz.init();
                     } catch (error) {
-                        Utils.error('Failed to initialize Quiz:', error);
+                        Utils.error('Failed to initialize Interactive Quiz:', error);
                         this.renderFallbackContent(container, 'Knowledge Quiz', 'This assessment is being prepared for you.');
                     }
                 } else {
