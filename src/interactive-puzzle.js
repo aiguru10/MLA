@@ -78,6 +78,20 @@ class InteractivePuzzle {
                     icon: 'fas fa-archive',
                     color: '#2196F3',
                     description: 'Archival Storage'
+                },
+                {
+                    id: 'rds',
+                    name: 'Amazon RDS',
+                    icon: 'fas fa-database',
+                    color: '#FF6B35',
+                    description: 'Relational Database'
+                },
+                {
+                    id: 'dynamodb',
+                    name: 'Amazon DynamoDB',
+                    icon: 'fas fa-table',
+                    color: '#4A90E2',
+                    description: 'NoSQL Database'
                 }
             ],
             useCases: [
@@ -115,6 +129,20 @@ class InteractivePuzzle {
                     description: 'Long-term storage of old ML models and datasets',
                     correctService: 'glacier',
                     category: 'Archival'
+                },
+                {
+                    id: 'ml-metadata',
+                    title: 'ML Experiment Tracking',
+                    description: 'Store structured ML metadata, experiment results, and model metrics',
+                    correctService: 'rds',
+                    category: 'Machine Learning'
+                },
+                {
+                    id: 'real-time-inference',
+                    title: 'Real-time ML Inference',
+                    description: 'Fast storage for real-time model predictions and A/B testing data',
+                    correctService: 'dynamodb',
+                    category: 'Machine Learning'
                 }
             ]
         };

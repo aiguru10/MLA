@@ -470,7 +470,7 @@ class PageController {
             <div class="content-section">
                 <div class="overview-container">
                     <div class="overview-intro">
-                        <p class="intro-text">AWS provides several storage services, each optimized for different use cases in machine learning workflows.</p>
+                        <p class="intro-text">AWS provides several storage and database services, each optimized for different use cases in machine learning workflows.</p>
                     </div>
                     
                     <div class="storage-services-grid">
@@ -489,7 +489,7 @@ class PageController {
                         
                         <div class="service-card">
                             <div class="service-icon">
-                                <i class="fas fa-database"></i>
+                                <i class="fas fa-hdd"></i>
                             </div>
                             <h3>Amazon EBS</h3>
                             <p>Block storage for EC2 instances, perfect for high-performance computing and database workloads.</p>
@@ -502,7 +502,7 @@ class PageController {
                         
                         <div class="service-card">
                             <div class="service-icon">
-                                <i class="fas fa-hdd"></i>
+                                <i class="fas fa-folder-open"></i>
                             </div>
                             <h3>Amazon EFS</h3>
                             <p>Managed file system that can be mounted on multiple EC2 instances simultaneously.</p>
@@ -528,7 +528,7 @@ class PageController {
                         
                         <div class="service-card">
                             <div class="service-icon">
-                                <i class="fas fa-memory"></i>
+                                <i class="fas fa-tachometer-alt"></i>
                             </div>
                             <h3>Amazon FSx</h3>
                             <p>High-performance file systems for compute-intensive workloads like machine learning training.</p>
@@ -536,6 +536,32 @@ class PageController {
                                 <span class="feature-tag">High-performance</span>
                                 <span class="feature-tag">Lustre</span>
                                 <span class="feature-tag">ML-optimized</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3>Amazon RDS</h3>
+                            <p>Managed relational database service for structured data, ML metadata, and experiment tracking.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Managed</span>
+                                <span class="feature-tag">ACID</span>
+                                <span class="feature-tag">SQL</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-table"></i>
+                            </div>
+                            <h3>Amazon DynamoDB</h3>
+                            <p>Fast NoSQL database for real-time applications, ML inference, and feature stores.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">NoSQL</span>
+                                <span class="feature-tag">Fast</span>
+                                <span class="feature-tag">Scalable</span>
                             </div>
                         </div>
                     </div>

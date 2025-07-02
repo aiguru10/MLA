@@ -105,36 +105,60 @@ class InteractiveQuiz {
             },
             {
                 id: 6,
+                question: "Which AWS service is best for storing structured ML metadata, experiment results, and model performance metrics?",
+                options: [
+                    "Amazon S3",
+                    "Amazon RDS",
+                    "Amazon DynamoDB",
+                    "Amazon EFS"
+                ],
+                correctAnswer: 1,
+                explanation: "Amazon RDS is perfect for structured data like ML metadata, experiment tracking, and model metrics because it provides ACID compliance, complex queries with SQL, and automated backups for critical ML experiment data."
+            },
+            {
+                id: 7,
+                question: "What makes Amazon DynamoDB particularly suitable for real-time ML inference applications?",
+                options: [
+                    "It's the cheapest database option",
+                    "Single-digit millisecond latency and automatic scaling",
+                    "It provides unlimited storage capacity",
+                    "It offers the highest durability rating"
+                ],
+                correctAnswer: 1,
+                explanation: "Amazon DynamoDB provides consistent single-digit millisecond latency and automatic scaling, making it perfect for real-time ML inference, A/B testing data, and high-speed model serving backends."
+            },
+            {
+                id: 8,
+                question: "When building a feature store for machine learning, which combination of services would be most appropriate?",
+                options: [
+                    "S3 for batch features, DynamoDB for real-time features",
+                    "EBS for all feature storage needs",
+                    "RDS for all feature storage needs",
+                    "Glacier for all feature storage needs"
+                ],
+                correctAnswer: 0,
+                explanation: "A feature store typically uses S3 for batch/historical features (cost-effective, large scale) and DynamoDB for real-time features (low latency access). This hybrid approach optimizes both cost and performance."
+            },
+            {
+                id: 9,
                 question: "Which AWS storage service offers the highest durability rating?",
                 options: [
                     "Amazon EBS (99.999% availability)",
                     "Amazon EFS (99.9% availability)",
                     "Amazon S3 (99.999999999% durability)",
-                    "Amazon FSx (99.9% availability)"
+                    "Amazon RDS (99.95% availability)"
                 ],
                 correctAnswer: 2,
                 explanation: "Amazon S3 offers 99.999999999% (11 9's) durability, which means if you store 10 million objects, you can expect to lose one object every 10,000 years on average."
             },
             {
-                id: 7,
-                question: "What makes Amazon FSx for Lustre particularly suitable for machine learning workloads?",
-                options: [
-                    "It's the cheapest storage option",
-                    "It automatically backs up data to S3",
-                    "It provides seamless integration with S3 and high throughput",
-                    "It offers unlimited storage capacity"
-                ],
-                correctAnswer: 2,
-                explanation: "Amazon FSx for Lustre integrates seamlessly with S3, allowing you to process S3 data at high speeds (hundreds of GB/s throughput) without copying data, which is perfect for ML training pipelines."
-            },
-            {
-                id: 8,
+                id: 10,
                 question: "In terms of cost optimization, which storage service would you choose for infrequently accessed backup data?",
                 options: [
-                    "Amazon EBS",
+                    "Amazon RDS",
                     "Amazon S3 Standard",
                     "Amazon S3 Glacier",
-                    "Amazon EFS"
+                    "Amazon DynamoDB"
                 ],
                 correctAnswer: 2,
                 explanation: "Amazon S3 Glacier offers the lowest storage costs (starting at $0.004 per GB/month) and is specifically designed for infrequently accessed data, making it ideal for backup and archival use cases."

@@ -179,6 +179,62 @@ class InteractiveServiceAnalysis {
                     startingPrice: '$0.004 per GB/month'
                 },
                 mlUseCase: 'Perfect for archiving old training datasets, model versions, and long-term storage of ML artifacts.'
+            },
+            {
+                id: 'rds',
+                name: 'Amazon RDS',
+                fullName: 'Amazon Relational Database Service',
+                icon: 'fas fa-database',
+                color: '#FF6B35',
+                description: 'Managed relational database service that makes it easy to set up, operate, and scale databases in the cloud.',
+                keyFeatures: [
+                    'Multiple database engines (MySQL, PostgreSQL, Oracle, SQL Server)',
+                    'Automated backups and point-in-time recovery',
+                    'Multi-AZ deployments for high availability',
+                    'Read replicas for improved performance',
+                    'Automated software patching and maintenance'
+                ],
+                useCases: [
+                    'Web and mobile applications',
+                    'E-commerce platforms',
+                    'Online gaming',
+                    'Financial applications',
+                    'Content management systems'
+                ],
+                pricing: {
+                    model: 'Pay for compute and storage',
+                    factors: ['Instance type', 'Storage amount', 'I/O requests', 'Data transfer'],
+                    startingPrice: '$0.017 per hour'
+                },
+                mlUseCase: 'Excellent for storing structured ML metadata, experiment results, model performance metrics, and feature stores.'
+            },
+            {
+                id: 'dynamodb',
+                name: 'Amazon DynamoDB',
+                fullName: 'Amazon DynamoDB',
+                icon: 'fas fa-table',
+                color: '#4A90E2',
+                description: 'Fast and flexible NoSQL database service for applications that need consistent, single-digit millisecond latency.',
+                keyFeatures: [
+                    'Single-digit millisecond latency',
+                    'Automatic scaling up and down',
+                    'Built-in security and backup',
+                    'Global tables for multi-region replication',
+                    'On-demand and provisioned capacity modes'
+                ],
+                useCases: [
+                    'Real-time applications',
+                    'Gaming leaderboards',
+                    'IoT data storage',
+                    'Mobile backends',
+                    'Serverless applications'
+                ],
+                pricing: {
+                    model: 'Pay for throughput and storage',
+                    factors: ['Read/write capacity units', 'Storage amount', 'Additional features'],
+                    startingPrice: '$0.25 per million requests'
+                },
+                mlUseCase: 'Perfect for real-time ML inference results, feature stores, A/B testing data, and high-speed model serving backends.'
             }
         ];
 
