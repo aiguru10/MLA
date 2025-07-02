@@ -117,7 +117,9 @@ class PageController {
         const headerHTML = `
             <div class="page-header">
                 <div class="page-breadcrumb">
-                    <span class="breadcrumb-item">Topic 1: Data Collection</span>
+                    <span class="breadcrumb-item clickable-breadcrumb" 
+                          onclick="pageController.goToTopicStart()" 
+                          title="Click to return to Learning Objectives">Topic 1: Data Collection</span>
                     <i class="fas fa-chevron-right breadcrumb-separator"></i>
                     <span class="breadcrumb-item">Task 1.1: Extracting Data from AWS Storage</span>
                 </div>
@@ -392,6 +394,16 @@ class PageController {
                 dot.classList.remove('current', 'completed');
             }
         });
+    }
+
+    /**
+     * Go to the start of the current topic (first page)
+     */
+    goToTopicStart() {
+        this.currentPageIndex = 0;
+        this.renderCurrentPage();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        Utils.log('Navigated to topic start (Learning Objectives)');
     }
 
     /**
