@@ -561,12 +561,14 @@ const ContentController = {
     async loadTopic2() {
         try {
             Utils.log('Loading Topic 2: Data Formats...');
+            console.log('Topic 2 link clicked - starting load process');
             
             // Update navigation state
             NavigationController.setActiveItem('topic2-data-formats');
             
             // Initialize Topic 2 page controller
             if (typeof Topic2PageController !== 'undefined') {
+                console.log('Topic2PageController found, initializing...');
                 const topic2Controller = new Topic2PageController();
                 await topic2Controller.init({
                     title: 'Choosing Appropriate Data Formats',
@@ -577,12 +579,15 @@ const ContentController = {
                 window.topic2PageController = topic2Controller;
                 
                 Utils.log('Topic 2 loaded successfully');
+                console.log('Topic 2 loaded successfully');
             } else {
+                console.error('Topic2PageController not available');
                 throw new Error('Topic2PageController not available');
             }
             
         } catch (error) {
             Utils.error('Failed to load Topic 2:', error);
+            console.error('Failed to load Topic 2:', error);
             this.showError('Failed to load Topic 2: Data Formats');
         }
     },

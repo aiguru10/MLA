@@ -64,14 +64,14 @@
                             <button class="nav-task-header tooltip" 
                                     data-tooltip="Ingest and Store Data" 
                                     onclick="NavigationController.toggleTask('task11')"
-                                    aria-expanded="false"
+                                    aria-expanded="true"
                                     aria-controls="task11">
                                 <i class="fas fa-download" aria-hidden="true"></i>
                                 <span>Task 1.1: Ingest and Store Data</span>
                                 <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
                             </button>
                             
-                            <div class="nav-task-content" id="task11" aria-hidden="true">
+                            <div class="nav-task-content" id="task11" aria-hidden="false">
                                 <a href="#" class="nav-link active tooltip" 
                                    data-tooltip="Extracting Data from Storage" 
                                    onclick="pageController && pageController.goToTopicStart(); return false;"
@@ -79,9 +79,11 @@
                                     <i class="fas fa-circle-dot" aria-hidden="true"></i>
                                     Topic 1: Extracting Data from Storage
                                 </a>
-                                <a href="#" class="nav-link" 
-                                   onclick="ContentController.loadTopic2()"
-                                   role="button">
+                                <a href="#" class="nav-link tooltip" 
+                                   data-tooltip="Choosing Appropriate Data Formats"
+                                   onclick="console.log('Topic 2 clicked!'); ContentController.loadTopic2(); return false;"
+                                   role="button"
+                                   style="cursor: pointer !important;">
                                     <i class="fas fa-circle-dot" aria-hidden="true"></i>
                                     Topic 2: Data Formats
                                 </a>
