@@ -96,10 +96,10 @@ class InteractivePuzzle {
             ],
             useCases: [
                 {
-                    id: 'data-lake',
-                    title: 'Data Lake for ML',
-                    description: 'Store large datasets for machine learning training and analytics',
-                    correctService: 's3',
+                    id: 'real-time-inference',
+                    title: 'Real-time ML Inference',
+                    description: 'Fast storage for real-time model predictions and A/B testing data',
+                    correctService: 'dynamodb',
                     category: 'Machine Learning'
                 },
                 {
@@ -110,11 +110,11 @@ class InteractivePuzzle {
                     category: 'Database'
                 },
                 {
-                    id: 'shared-training',
-                    title: 'Shared Training Data',
-                    description: 'Multiple ML instances accessing the same dataset simultaneously',
-                    correctService: 'efs',
-                    category: 'Machine Learning'
+                    id: 'model-archive',
+                    title: 'Model Archival',
+                    description: 'Long-term storage of old ML models and datasets',
+                    correctService: 'glacier',
+                    category: 'Archival'
                 },
                 {
                     id: 'ml-training',
@@ -124,11 +124,11 @@ class InteractivePuzzle {
                     category: 'Machine Learning'
                 },
                 {
-                    id: 'model-archive',
-                    title: 'Model Archival',
-                    description: 'Long-term storage of old ML models and datasets',
-                    correctService: 'glacier',
-                    category: 'Archival'
+                    id: 'data-lake',
+                    title: 'Data Lake for ML',
+                    description: 'Store large datasets for machine learning training and analytics',
+                    correctService: 's3',
+                    category: 'Machine Learning'
                 },
                 {
                     id: 'ml-metadata',
@@ -138,17 +138,35 @@ class InteractivePuzzle {
                     category: 'Machine Learning'
                 },
                 {
-                    id: 'real-time-inference',
-                    title: 'Real-time ML Inference',
-                    description: 'Fast storage for real-time model predictions and A/B testing data',
-                    correctService: 'dynamodb',
+                    id: 'shared-training',
+                    title: 'Shared Training Data',
+                    description: 'Multiple ML instances accessing the same dataset simultaneously',
+                    correctService: 'efs',
                     category: 'Machine Learning'
                 }
             ]
         };
 
+        // Shuffle the use cases to make the puzzle more challenging
+        this.gameData.useCases = this.shuffleArray(this.gameData.useCases);
+        
+        // Also shuffle the services for variety
+        this.gameData.services = this.shuffleArray(this.gameData.services);
+
         this.totalQuestions = this.gameData.useCases.length;
-        Utils.log(`Setup puzzle with ${this.gameData.services.length} services and ${this.totalQuestions} use cases`);
+        Utils.log(`Setup puzzle with ${this.gameData.services.length} services and ${this.totalQuestions} use cases (shuffled)`);
+    }
+
+    /**
+     * Shuffle array using Fisher-Yates algorithm
+     */
+    shuffleArray(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
     }
 
     /**
