@@ -75,12 +75,6 @@ class PageController {
                 component: 'quiz'
             },
             {
-                id: 'task-11-assessment',
-                title: 'Task 1.1 Official Assessment',
-                type: 'interactive',
-                component: 'task-11-quiz'
-            },
-            {
                 id: 'lesson-summary',
                 title: 'Lesson Summary',
                 type: 'content',
@@ -238,30 +232,6 @@ class PageController {
                     }
                 } else {
                     this.renderFallbackContent(container, 'Knowledge Check Quiz', 'Answer questions about AWS storage services to test your understanding and reinforce your learning.');
-                }
-                break;
-
-            case 'task-11-quiz':
-                const task11QuizHTML = `
-                    <div class="interactive-container">
-                        <div id="task11QuizContainer" class="task11-quiz-container">
-                            <!-- Task 1.1 Quiz will be loaded here -->
-                        </div>
-                    </div>
-                `;
-                DOMUtils.setContent(container, task11QuizHTML, true);
-                
-                // Initialize Task 1.1 Quiz
-                if (window.Task11Quiz) {
-                    try {
-                        const task11Quiz = new Task11Quiz();
-                        await task11Quiz.init();
-                    } catch (error) {
-                        Utils.error('Failed to initialize Task 1.1 Quiz:', error);
-                        this.renderFallbackContent(container, 'Task 1.1 Assessment', 'This official assessment is being prepared for you.');
-                    }
-                } else {
-                    this.renderFallbackContent(container, 'Task 1.1 Official Assessment', 'Complete the official 10-question assessment for Task 1.1: Extracting Data from AWS Storage Services. This assessment matches the exact questions from the course syllabus.');
                 }
                 break;
 
