@@ -1,0 +1,738 @@
+/**
+ * Topic 2 Styles - Data Formats
+ * Choosing Appropriate Data Formats
+ * 
+ * @author MLA Tutorial Team
+ * @version 1.0.0
+ * @since 2025-07-02
+ */
+
+/* Topic 2 Container */
+.data-formats-overview {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Styles */
+.overview-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.header-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.overview-header h2 {
+    font-size: 2.5em;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+    margin: 0;
+    font-weight: 300;
+}
+
+/* Format Introduction */
+.format-intro {
+    margin-bottom: 40px;
+}
+
+.intro-card {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+}
+
+.intro-card h3 {
+    font-size: 1.8em;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.intro-card p {
+    font-size: 1.1em;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Analogy Grid */
+.analogy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.analogy-item {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.analogy-item:hover {
+    transform: translateY(-5px);
+}
+
+.analogy-icon {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.analogy-text {
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+/* Comparison Table */
+.formats-comparison-table {
+    margin-bottom: 40px;
+}
+
+.formats-comparison-table h3 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #2D3748;
+}
+
+.comparison-table {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E2E8F0;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr 1fr 1fr 1fr;
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.header-cell {
+    padding: 15px 10px;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-cell:last-child {
+    border-right: none;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #E2E8F0;
+    transition: background-color 0.3s ease;
+}
+
+.table-row:hover {
+    background-color: #F7FAFC;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.cell {
+    padding: 15px 10px;
+    text-align: center;
+    border-right: 1px solid #E2E8F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cell:last-child {
+    border-right: none;
+}
+
+.format-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.format-icon {
+    font-size: 1.5em;
+}
+
+/* Rating Bars */
+.rating-bar {
+    width: 60px;
+    height: 8px;
+    background: #E2E8F0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 2px;
+}
+
+.rating-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #48bb78 0%, #38a169 100%);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+/* Format-specific row colors */
+.csv-row {
+    border-left: 4px solid #48bb78;
+}
+
+.json-row {
+    border-left: 4px solid #4299e1;
+}
+
+.parquet-row {
+    border-left: 4px solid #ed8936;
+}
+
+.orc-row {
+    border-left: 4px solid #9f7aea;
+}
+
+/* Key Concepts */
+.key-concepts {
+    margin-bottom: 40px;
+}
+
+.key-concepts h3 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #2D3748;
+}
+
+.concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.concept-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E2E8F0;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.concept-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.concept-icon {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.concept-card h4 {
+    font-size: 1.3em;
+    margin: 0 0 15px 0;
+    color: #2D3748;
+    font-weight: 600;
+}
+
+.concept-card p {
+    color: #4A5568;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Learning Objectives Styles */
+.learning-objectives-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.objectives-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.objective-card {
+    padding: 30px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.objective-card:hover {
+    transform: translateY(-5px);
+}
+
+.objective-card.primary {
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+}
+
+.objective-card.secondary {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+
+.objective-card.tertiary {
+    background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+}
+
+.objective-card.quaternary {
+    background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
+}
+
+.objective-icon {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    display: block;
+    text-align: center;
+}
+
+.objective-card h3 {
+    font-size: 1.4em;
+    margin: 0 0 15px 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+.objective-card p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.objective-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.objective-card li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.objective-card li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+}
+
+/* Objectives Summary */
+.objectives-summary {
+    margin-top: 40px;
+}
+
+.summary-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E2E8F0;
+}
+
+.summary-card h3 {
+    font-size: 1.5em;
+    margin: 0 0 20px 0;
+    color: #2D3748;
+    text-align: center;
+}
+
+.summary-checklist {
+    display: grid;
+    gap: 15px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #F7FAFC;
+    border-radius: 10px;
+    border-left: 4px solid #48bb78;
+}
+
+.checklist-item i {
+    color: #48bb78;
+    font-size: 1.2em;
+}
+
+.checklist-item span {
+    font-size: 1.1em;
+    color: #2D3748;
+    font-weight: 500;
+}
+
+/* Lesson Summary Styles */
+.lesson-summary-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.summary-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.learning-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.learning-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E2E8F0;
+    transition: transform 0.3s ease;
+}
+
+.learning-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.learning-card h4 {
+    font-size: 1.3em;
+    margin: 0 0 15px 0;
+    color: #2D3748;
+    text-align: center;
+    font-weight: 600;
+}
+
+.learning-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.learning-card li {
+    padding: 5px 0;
+    color: #4A5568;
+    position: relative;
+    padding-left: 20px;
+}
+
+.learning-card li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #4299e1;
+    font-weight: bold;
+}
+
+/* Decision Framework */
+.decision-framework {
+    margin-bottom: 40px;
+}
+
+.decision-framework h3 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #2D3748;
+}
+
+.framework-flowchart {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.decision-node {
+    display: inline-block;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 10px;
+    color: white;
+    font-weight: 600;
+    min-width: 120px;
+}
+
+.decision-node.start {
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+    font-size: 1.1em;
+}
+
+.decision-node.csv {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+
+.decision-node.json {
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+}
+
+.decision-node.parquet {
+    background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+}
+
+.decision-node.orc {
+    background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
+}
+
+.decision-branches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.branch {
+    text-align: center;
+}
+
+.branch-label {
+    font-size: 0.9em;
+    color: #4A5568;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+/* Best Practices */
+.best-practices {
+    margin-bottom: 40px;
+}
+
+.best-practices h3 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #2D3748;
+}
+
+.practices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.practice-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #4299e1;
+}
+
+.practice-icon {
+    font-size: 1.8em;
+    color: #4299e1;
+    flex-shrink: 0;
+}
+
+.practice-content h4 {
+    margin: 0 0 10px 0;
+    color: #2D3748;
+    font-size: 1.2em;
+}
+
+.practice-content p {
+    margin: 0;
+    color: #4A5568;
+    line-height: 1.5;
+}
+
+/* Next Steps */
+.next-steps {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.next-steps h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #2D3748;
+    text-align: center;
+}
+
+.next-steps-content p {
+    font-size: 1.1em;
+    color: #4A5568;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.next-steps-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.next-steps-content li {
+    padding: 10px 0;
+    color: #4A5568;
+    position: relative;
+    padding-left: 25px;
+    font-size: 1.05em;
+}
+
+.next-steps-content li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #4299e1;
+    font-weight: bold;
+}
+
+.completion-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.badge-icon {
+    font-size: 3em;
+}
+
+.badge-text {
+    font-size: 1.2em;
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .data-formats-overview,
+    .learning-objectives-container,
+    .lesson-summary-container {
+        padding: 15px;
+    }
+    
+    .overview-header,
+    .objectives-header,
+    .summary-header {
+        padding: 20px;
+    }
+    
+    .overview-header h2,
+    .objectives-header h2,
+    .summary-header h2 {
+        font-size: 2em;
+    }
+    
+    .table-header,
+    .table-row {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+    
+    .cell {
+        border-right: none;
+        border-bottom: 1px solid #E2E8F0;
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+    
+    .analogy-grid,
+    .concepts-grid,
+    .objectives-grid,
+    .learning-cards,
+    .practices-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .decision-branches {
+        grid-template-columns: 1fr;
+    }
+    
+    .completion-badge {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-icon,
+    .objective-icon,
+    .card-icon {
+        font-size: 2em;
+    }
+    
+    .analogy-icon,
+    .concept-icon {
+        font-size: 2em;
+    }
+    
+    .badge-icon {
+        font-size: 2.5em;
+    }
+    
+    .intro-card,
+    .objective-card,
+    .learning-card {
+        padding: 20px;
+    }
+}

@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="service-analysis-styles.css">
     <link rel="stylesheet" href="puzzle-styles.css">
     <link rel="stylesheet" href="quiz-styles.css">
+    <link rel="stylesheet" href="topic2-styles.css">
+    <link rel="stylesheet" href="format-analysis-styles.css">
+    <link rel="stylesheet" href="format-puzzle-styles.css">
 </head>
 
 <body>
@@ -76,13 +79,11 @@
                                     <i class="fas fa-circle-dot" aria-hidden="true"></i>
                                     Topic 1: Extracting Data from Storage
                                 </a>
-                                <a href="#" class="nav-link coming-soon tooltip" 
-                                   data-tooltip="Coming Soon" 
-                                   onclick="UIController.showComingSoon()"
+                                <a href="#" class="nav-link" 
+                                   onclick="ContentController.loadTopic2()"
                                    role="button">
                                     <i class="fas fa-circle-dot" aria-hidden="true"></i>
                                     Topic 2: Data Formats
-                                    <span class="badge">Soon</span>
                                 </a>
                                 <a href="#" class="nav-link coming-soon tooltip" 
                                    data-tooltip="Coming Soon" 
@@ -235,5 +236,9 @@
     <script src="puzzle-game.js"></script>
     <script src="quiz-controller.js"></script>
     <script src="service-analysis.js"></script>
+    <script src="topic2-page-controller.js"></script>
+    <script src="format-analysis-interactive.js"></script>
+    <script src="format-puzzle-game.js"></script>
+    <script src="format-selection-quiz.js"></script>
 </body>
 </html>
