@@ -586,7 +586,6 @@ const ContentController = {
             }
             
         } catch (error) {
-            Utils.error('Failed to load Topic 2:', error);
             console.error('Failed to load Topic 2:', error);
             this.showError('Failed to load Topic 2: Data Formats');
         }
