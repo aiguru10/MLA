@@ -563,9 +563,6 @@ const ContentController = {
             Utils.log('Loading Topic 2: Data Formats...');
             console.log('Topic 2 link clicked - starting load process');
             
-            // Update navigation state
-            NavigationController.setActiveItem('topic2-data-formats');
-            
             // Initialize Topic 2 page controller
             if (typeof Topic2PageController !== 'undefined') {
                 console.log('Topic2PageController found, initializing...');
@@ -587,7 +584,7 @@ const ContentController = {
             
         } catch (error) {
             console.error('Failed to load Topic 2:', error);
-            this.showError('Failed to load Topic 2: Data Formats');
+            this.showErrorContent('Failed to load Topic 2: Data Formats');
         }
     },
     
