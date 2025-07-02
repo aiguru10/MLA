@@ -257,7 +257,133 @@
     border: 1px solid #dbeafe;
 }
 
-/* Lesson Summary Styles */
+/* Interactive Component Styles */
+.interactive-container {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.interactive-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.interactive-header h2 {
+    font-size: 2rem;
+    margin: 0 0 15px 0;
+    color: #1f2937;
+}
+
+.interactive-header p {
+    font-size: 1.1rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Fallback Content Styles */
+.fallback-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.fallback-card {
+    background: #f8fafc;
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.fallback-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 2rem;
+}
+
+.fallback-card h3 {
+    font-size: 1.5rem;
+    margin: 0 0 15px 0;
+    color: #1f2937;
+}
+
+.fallback-card p {
+    color: #6b7280;
+    margin: 0 0 25px 0;
+    line-height: 1.6;
+}
+
+.fallback-features {
+    display: grid;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.feature-item i {
+    color: #10b981;
+    font-size: 0.9rem;
+}
+
+.feature-item span {
+    color: #4b5563;
+    font-weight: 500;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-secondary {
+    background: #6b7280;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #4b5563;
+}
 .summary-container {
     max-width: 700px;
     margin: 0 auto;
@@ -330,14 +456,25 @@
     flex-wrap: wrap;
 }
 
-/* Navigation Buttons */
+/* Navigation Buttons - Fixed Position */
 .page-navigation {
+    position: fixed;
+    bottom: 0;
+    left: 280px; /* Account for sidebar width */
+    right: 0;
+    background: white;
+    border-top: 2px solid #e5e7eb;
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 0;
-    border-top: 1px solid #e5e7eb;
-    margin-top: 40px;
+    z-index: 100;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Add bottom padding to main content to account for fixed navigation */
+.main-content {
+    padding-bottom: 100px;
 }
 
 .nav-btn {
@@ -424,8 +561,10 @@
     }
     
     .page-navigation {
+        left: 0; /* Full width on mobile */
+        padding: 15px 20px;
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
     }
     
     .next-actions {
@@ -435,6 +574,10 @@
     .nav-btn {
         width: 100%;
         justify-content: center;
+    }
+    
+    .page-indicator {
+        order: -1; /* Show progress dots above buttons on mobile */
     }
 }
 
@@ -456,5 +599,24 @@
     
     .progress-text {
         font-size: 0.8rem;
+    }
+    
+    .interactive-container {
+        padding: 20px 15px;
+    }
+    
+    .fallback-card {
+        padding: 25px 20px;
+    }
+}
+
+/* Sidebar collapsed state adjustments */
+.sidebar.collapsed ~ .main-content .page-navigation {
+    left: 70px; /* Account for collapsed sidebar width */
+}
+
+@media (max-width: 768px) {
+    .sidebar.collapsed ~ .main-content .page-navigation {
+        left: 0; /* Full width on mobile regardless of sidebar state */
     }
 }
