@@ -152,7 +152,7 @@ class FormatPuzzleGame {
                     <div class="game-progress">
                         <div class="progress-info">
                             <span class="question-counter">Question ${this.currentQuestionIndex + 1} of ${this.totalQuestions}</span>
-                            <span class="current-score">Score: ${this.currentScore}/${this.totalQuestions}</span>
+                            <span class="current-score">Score: ${Math.round((this.currentScore / this.totalQuestions) * 100)}%</span>
                         </div>
                         <div class="progress-bar">
                             <div class="progress-fill" style="width: ${(this.currentQuestionIndex / this.totalQuestions) * 100}%"></div>
@@ -541,6 +541,9 @@ class FormatPuzzleGame {
         this.initialized = false;
     }
 }
+
+// Make FormatPuzzleGame available globally
+window.FormatPuzzleGame = FormatPuzzleGame;
 
 // Export for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
