@@ -10,7 +10,7 @@
 class InteractivePuzzle {
     constructor() {
         this.containerId = 'puzzleGameContainer';
-        this.score = 0;
+        this.correctAnswers = 0;
         this.totalQuestions = 0;
         this.completedMatches = 0;
         this.draggedElement = null;
@@ -186,7 +186,7 @@ class InteractivePuzzle {
                     <div class="puzzle-score">
                         <div class="score-item">
                             <span class="score-label">Score:</span>
-                            <span class="score-value" id="puzzleScore">${this.score}</span>
+                            <span class="score-value" id="puzzleScore">${this.getScorePercentage()}%</span>
                         </div>
                         <div class="score-item">
                             <span class="score-label">Progress:</span>
@@ -230,7 +230,7 @@ class InteractivePuzzle {
                         <h3><i class="fas fa-trophy"></i> Congratulations!</h3>
                         <p>You've completed the puzzle challenge!</p>
                         <div class="final-score">
-                            <span>Final Score: <strong id="finalScore">${this.score}</strong></span>
+                            <span>Final Score: <strong id="finalScore">${this.getScorePercentage()}%</strong></span>
                         </div>
                         <button class="btn btn-primary" onclick="pageController.nextPage()">
                             Continue to Quiz
@@ -423,11 +423,11 @@ class InteractivePuzzle {
             matchStatus.innerHTML = `
                 <div class="match-correct">
                     <i class="fas fa-check-circle"></i>
-                    <span>Correct! +10 points</span>
+                    <span>Correct!</span>
                 </div>
             `;
             useCaseItem.classList.add('correct-match');
-            this.score += 10;
+            this.correctAnswers++;
             this.completedMatches++;
         } else {
             matchStatus.innerHTML = `
@@ -468,13 +468,22 @@ class InteractivePuzzle {
     }
 
     /**
+     * Calculate current score as percentage
+     * @returns {number} Percentage score (0-100)
+     */
+    getScorePercentage() {
+        if (this.totalQuestions === 0) return 0;
+        return Math.round((this.correctAnswers / this.totalQuestions) * 100);
+    }
+
+    /**
      * Update score display
      */
     updateScoreDisplay() {
         const scoreElement = DOMUtils.getElementById('puzzleScore');
         const progressElement = DOMUtils.getElementById('puzzleProgress');
         
-        if (scoreElement) scoreElement.textContent = this.score;
+        if (scoreElement) scoreElement.textContent = `${this.getScorePercentage()}%`;
         if (progressElement) progressElement.textContent = `${this.completedMatches}/${this.totalQuestions}`;
     }
 
@@ -491,17 +500,17 @@ class InteractivePuzzle {
         }
         
         if (finalScoreElement) {
-            finalScoreElement.textContent = this.score;
+            finalScoreElement.textContent = `${this.getScorePercentage()}%`;
         }
         
-        Utils.log(`Game completed! Final score: ${this.score}/${this.totalQuestions * 10}`);
+        Utils.log(`Game completed! Final score: ${this.correctAnswers}/${this.totalQuestions} (${this.getScorePercentage()}%)`);
     }
 
     /**
      * Reset the game
      */
     resetGame() {
-        this.score = 0;
+        this.correctAnswers = 0;
         this.completedMatches = 0;
         this.render();
         this.setupDragAndDrop();
