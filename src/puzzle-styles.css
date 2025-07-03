@@ -209,6 +209,7 @@
     border-radius: 10px;
     transition: all 0.3s ease;
     position: relative;
+    cursor: pointer;
 }
 
 .use-case-item.drag-over {
@@ -227,6 +228,31 @@
     border-color: #ef4444;
     background: #fef2f2;
     border-style: solid;
+}
+
+/* Drop Hint - replaces the old drop-zone */
+.drop-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px;
+    margin-top: 10px;
+    color: #9ca3af;
+    font-size: 0.85rem;
+    font-style: italic;
+    border-top: 1px solid #e5e7eb;
+    background: rgba(249, 250, 251, 0.5);
+    border-radius: 0 0 8px 8px;
+}
+
+.drop-hint i {
+    font-size: 0.8rem;
+}
+
+.use-case-item.drag-over .drop-hint {
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
 }
 
 .use-case-header {
@@ -259,7 +285,8 @@
     font-size: 0.95rem;
 }
 
-/* Drop Zone */
+/* Drop Zone - DEPRECATED: Now using entire use-case-item as droppable area */
+/*
 .drop-zone {
     display: flex;
     flex-direction: column;
@@ -281,6 +308,7 @@
 .drop-zone span {
     font-weight: 500;
 }
+*/
 
 /* Match Result */
 .match-result {

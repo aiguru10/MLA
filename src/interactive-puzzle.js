@@ -278,7 +278,7 @@ class InteractivePuzzle {
      */
     renderUseCases() {
         return this.gameData.useCases.map(useCase => `
-            <div class="use-case-item" 
+            <div class="use-case-item droppable-area" 
                  data-use-case-id="${useCase.id}"
                  data-correct-service="${useCase.correctService}">
                 <div class="use-case-header">
@@ -286,9 +286,9 @@ class InteractivePuzzle {
                     <span class="use-case-category">${useCase.category}</span>
                 </div>
                 <p class="use-case-description">${useCase.description}</p>
-                <div class="drop-zone">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>Drop service here</span>
+                <div class="drop-hint">
+                    <i class="fas fa-hand-pointer"></i>
+                    <span>Drag AWS service here</span>
                 </div>
                 <div class="match-result" style="display: none;">
                     <div class="matched-service"></div>
@@ -400,12 +400,12 @@ class InteractivePuzzle {
         const useCase = this.gameData.useCases.find(uc => uc.id === useCaseId);
         
         // Update UI
-        const dropZone = useCaseItem.querySelector('.drop-zone');
+        const dropHint = useCaseItem.querySelector('.drop-hint');
         const matchResult = useCaseItem.querySelector('.match-result');
         const matchedService = useCaseItem.querySelector('.matched-service');
         const matchStatus = useCaseItem.querySelector('.match-status');
         
-        dropZone.style.display = 'none';
+        dropHint.style.display = 'none';
         matchResult.style.display = 'block';
         
         // Show matched service
@@ -459,10 +459,10 @@ class InteractivePuzzle {
      * Reset a match for retry
      */
     resetMatch(useCaseItem) {
-        const dropZone = useCaseItem.querySelector('.drop-zone');
+        const dropHint = useCaseItem.querySelector('.drop-hint');
         const matchResult = useCaseItem.querySelector('.match-result');
         
-        dropZone.style.display = 'block';
+        dropHint.style.display = 'flex';
         matchResult.style.display = 'none';
         useCaseItem.classList.remove('incorrect-match');
     }
