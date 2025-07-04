@@ -146,11 +146,26 @@ const ContentController = {
      * Render Task 1.1 Topic 1 content
      */
     async renderTask11Topic1() {
-        const content = this.generateTask11Topic1Content();
-        DOMUtils.setContent(this.elements.contentBody, content, true);
+        // For Task 1.1 Topic 1, always render basic structure and let PageController handle the content
+        Utils.log('Rendering basic structure for Task 1.1 Topic 1 - PageController will take over');
         
-        // Initialize interactive components after content is loaded
-        await this.initializeInteractiveComponents();
+        const basicContent = `
+            <div class="lesson-container">
+                <!-- Page Header Container (PageController will populate this) -->
+                <div id="pageHeader"></div>
+                
+                <!-- Page Content Container (PageController will populate this) -->
+                <div id="pageContent"></div>
+            </div>
+        `;
+        
+        DOMUtils.setContent(this.elements.contentBody, basicContent, true);
+        
+        // If PageController is available, let it render the current page
+        if (window.pageController && window.pageController.initialized) {
+            Utils.log('PageController is available - triggering page render');
+            await window.pageController.renderCurrentPage();
+        }
     },
     
     /**
