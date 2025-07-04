@@ -744,13 +744,19 @@ class Topic2PageController {
 
         if (prevBtn) {
             prevBtn.disabled = this.currentPageIndex === 0;
+            prevBtn.style.opacity = this.currentPageIndex === 0 ? '0.5' : '1';
             prevBtn.onclick = () => this.previousPage();
         }
 
         if (nextBtn) {
-            nextBtn.disabled = this.currentPageIndex === this.pages.length - 1;
+            const isLastPage = this.currentPageIndex === this.pages.length - 1;
+            nextBtn.disabled = isLastPage;
+            nextBtn.style.opacity = isLastPage ? '0.5' : '1';
+            nextBtn.textContent = isLastPage ? 'Complete Lesson' : 'Next';
             nextBtn.onclick = () => this.nextPage();
         }
+        
+        console.log(`🟠 Topic 2: Updated navigation buttons - page ${this.currentPageIndex + 1}/${this.pages.length}, isLastPage: ${this.currentPageIndex === this.pages.length - 1}`);
     }
 
     updateProgressIndicator() {

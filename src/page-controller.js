@@ -344,6 +344,12 @@ class PageController {
      * Update navigation buttons state
      */
     updateNavigationButtons() {
+        // Don't update navigation if Topic 2 controller is active
+        if (window.topic2PageController && window.topic2PageController.initialized) {
+            console.log('🔵 Topic 1: Skipping navigation update - Topic 2 is active');
+            return;
+        }
+        
         const prevBtn = DOMUtils.getElementById('prevPageBtn');
         const nextBtn = DOMUtils.getElementById('nextPageBtn');
 
@@ -358,6 +364,8 @@ class PageController {
             nextBtn.style.opacity = isLastPage ? '0.5' : '1';
             nextBtn.textContent = isLastPage ? 'Complete Lesson' : 'Next';
         }
+        
+        console.log(`🔵 Topic 1: Updated navigation buttons - page ${this.currentPageIndex + 1}/${this.pages.length}, isLastPage: ${this.currentPageIndex === this.pages.length - 1}`);
     }
 
     /**
