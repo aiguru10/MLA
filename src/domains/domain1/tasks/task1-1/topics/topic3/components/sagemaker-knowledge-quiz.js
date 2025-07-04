@@ -17,11 +17,11 @@ class SageMakerKnowledgeQuiz {
         this.initialized = false;
     }
 
-    async init() {
+    async init(container = null) {
         try {
             console.log('🟢 Initializing SageMaker Knowledge Quiz...');
             this.setupQuestions();
-            await this.render();
+            await this.render(container);
             this.setupEventListeners();
             this.initialized = true;
             console.log('✅ SageMaker Knowledge Quiz initialized successfully');
@@ -168,8 +168,13 @@ class SageMakerKnowledgeQuiz {
         console.log(`🟢 Setup ${this.questions.length} quiz questions`);
     }
 
-    async render() {
-        const container = document.getElementById('sagemakerQuizContainer');
+    async render(providedContainer = null) {
+        let container = providedContainer;
+        
+        if (!container) {
+            container = document.getElementById('sagemakerQuizContainer');
+        }
+        
         if (!container) {
             throw new Error('SageMaker Quiz container not found');
         }

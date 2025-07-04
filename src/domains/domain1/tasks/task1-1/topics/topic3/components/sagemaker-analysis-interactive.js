@@ -13,10 +13,10 @@ class InteractiveSageMakerAnalysis {
         this.initialized = false;
     }
 
-    async init() {
+    async init(container = null) {
         try {
             console.log('🟢 Initializing Interactive SageMaker Analysis...');
-            await this.render();
+            await this.render(container);
             this.setupEventListeners();
             this.initialized = true;
             console.log('✅ Interactive SageMaker Analysis initialized successfully');
@@ -26,8 +26,13 @@ class InteractiveSageMakerAnalysis {
         }
     }
 
-    async render() {
-        const container = document.getElementById('sagemakerAnalysisContainer');
+    async render(providedContainer = null) {
+        let container = providedContainer;
+        
+        if (!container) {
+            container = document.getElementById('sagemakerAnalysisContainer');
+        }
+        
         if (!container) {
             throw new Error('SageMaker Analysis container not found');
         }

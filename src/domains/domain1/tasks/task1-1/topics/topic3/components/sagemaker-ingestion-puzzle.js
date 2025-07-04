@@ -18,11 +18,11 @@ class SageMakerIngestionPuzzle {
         this.initialized = false;
     }
 
-    async init() {
+    async init(container = null) {
         try {
             console.log('🟢 Initializing SageMaker Ingestion Puzzle...');
             this.setupGameData();
-            await this.render();
+            await this.render(container);
             this.setupEventListeners();
             this.initialized = true;
             console.log('✅ SageMaker Ingestion Puzzle initialized successfully');
@@ -127,8 +127,13 @@ class SageMakerIngestionPuzzle {
         console.log(`🟢 Setup ${this.totalScenarios} scenarios for the puzzle`);
     }
 
-    async render() {
-        const container = document.getElementById('ingestionPuzzleContainer');
+    async render(providedContainer = null) {
+        let container = providedContainer;
+        
+        if (!container) {
+            container = document.getElementById('ingestionPuzzleContainer');
+        }
+        
         if (!container) {
             throw new Error('Ingestion Puzzle container not found');
         }

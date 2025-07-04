@@ -171,13 +171,16 @@ class Topic3Controller {
                 DOMUtils.setContent(container, analysisHTML, true);
                 
                 // Wait for DOM to be ready
-                await new Promise(resolve => setTimeout(resolve, 100));
+                await new Promise(resolve => setTimeout(resolve, 200));
+                
+                // Get the specific container
+                const analysisContainer = document.getElementById('sagemakerAnalysisContainer');
                 
                 // Initialize Interactive SageMaker Analysis
-                if (window.InteractiveSageMakerAnalysis) {
+                if (window.InteractiveSageMakerAnalysis && analysisContainer) {
                     try {
                         const sagemakerAnalysis = new InteractiveSageMakerAnalysis();
-                        await sagemakerAnalysis.init();
+                        await sagemakerAnalysis.init(analysisContainer);
                         
                         // Store global reference
                         window.sagemakerAnalysis = sagemakerAnalysis;
@@ -186,9 +189,8 @@ class Topic3Controller {
                     } catch (error) {
                         console.error('❌ Topic 3: Failed to initialize SageMaker Analysis:', error);
                         // Show error message in container
-                        const errorContainer = document.getElementById('sagemakerAnalysisContainer');
-                        if (errorContainer) {
-                            errorContainer.innerHTML = `
+                        if (analysisContainer) {
+                            analysisContainer.innerHTML = `
                                 <div class="error-message">
                                     <h4>⚠️ Component Loading Error</h4>
                                     <p>The SageMaker Analysis component failed to load. Please refresh the page.</p>
@@ -198,11 +200,10 @@ class Topic3Controller {
                         }
                     }
                 } else {
-                    console.warn('⚠️ Topic 3: InteractiveSageMakerAnalysis not available');
+                    console.warn('⚠️ Topic 3: InteractiveSageMakerAnalysis not available or container not found');
                     // Show fallback content
-                    const fallbackContainer = document.getElementById('sagemakerAnalysisContainer');
-                    if (fallbackContainer) {
-                        fallbackContainer.innerHTML = `
+                    if (analysisContainer) {
+                        analysisContainer.innerHTML = `
                             <div class="fallback-message">
                                 <h4>📊 SageMaker Analysis</h4>
                                 <p>Interactive analysis component is loading...</p>
@@ -226,13 +227,16 @@ class Topic3Controller {
                 DOMUtils.setContent(container, puzzleHTML, true);
                 
                 // Wait for DOM to be ready
-                await new Promise(resolve => setTimeout(resolve, 100));
+                await new Promise(resolve => setTimeout(resolve, 200));
+                
+                // Get the specific container
+                const puzzleContainer = document.getElementById('ingestionPuzzleContainer');
                 
                 // Initialize SageMaker Ingestion Puzzle
-                if (window.SageMakerIngestionPuzzle) {
+                if (window.SageMakerIngestionPuzzle && puzzleContainer) {
                     try {
                         const ingestionPuzzle = new SageMakerIngestionPuzzle();
-                        await ingestionPuzzle.init();
+                        await ingestionPuzzle.init(puzzleContainer);
                         
                         // Store global reference
                         window.sagemakerPuzzle = ingestionPuzzle;
@@ -241,9 +245,8 @@ class Topic3Controller {
                     } catch (error) {
                         console.error('❌ Topic 3: Failed to initialize Ingestion Puzzle:', error);
                         // Show error message in container
-                        const errorContainer = document.getElementById('ingestionPuzzleContainer');
-                        if (errorContainer) {
-                            errorContainer.innerHTML = `
+                        if (puzzleContainer) {
+                            puzzleContainer.innerHTML = `
                                 <div class="error-message">
                                     <h4>⚠️ Component Loading Error</h4>
                                     <p>The SageMaker Puzzle component failed to load. Please refresh the page.</p>
@@ -253,11 +256,10 @@ class Topic3Controller {
                         }
                     }
                 } else {
-                    console.warn('⚠️ Topic 3: SageMakerIngestionPuzzle not available');
+                    console.warn('⚠️ Topic 3: SageMakerIngestionPuzzle not available or container not found');
                     // Show fallback content
-                    const fallbackContainer = document.getElementById('ingestionPuzzleContainer');
-                    if (fallbackContainer) {
-                        fallbackContainer.innerHTML = `
+                    if (puzzleContainer) {
+                        puzzleContainer.innerHTML = `
                             <div class="fallback-message">
                                 <h4>🧩 SageMaker Puzzle</h4>
                                 <p>Interactive puzzle component is loading...</p>
@@ -281,13 +283,16 @@ class Topic3Controller {
                 DOMUtils.setContent(container, quizHTML, true);
                 
                 // Wait for DOM to be ready
-                await new Promise(resolve => setTimeout(resolve, 100));
+                await new Promise(resolve => setTimeout(resolve, 200));
+                
+                // Get the specific container
+                const quizContainer = document.getElementById('sagemakerQuizContainer');
                 
                 // Initialize SageMaker Knowledge Quiz
-                if (window.SageMakerKnowledgeQuiz) {
+                if (window.SageMakerKnowledgeQuiz && quizContainer) {
                     try {
                         const sagemakerQuiz = new SageMakerKnowledgeQuiz();
-                        await sagemakerQuiz.init();
+                        await sagemakerQuiz.init(quizContainer);
                         
                         // Store global reference
                         window.sagemakerQuiz = sagemakerQuiz;
@@ -296,9 +301,8 @@ class Topic3Controller {
                     } catch (error) {
                         console.error('❌ Topic 3: Failed to initialize SageMaker Quiz:', error);
                         // Show error message in container
-                        const errorContainer = document.getElementById('sagemakerQuizContainer');
-                        if (errorContainer) {
-                            errorContainer.innerHTML = `
+                        if (quizContainer) {
+                            quizContainer.innerHTML = `
                                 <div class="error-message">
                                     <h4>⚠️ Component Loading Error</h4>
                                     <p>The SageMaker Quiz component failed to load. Please refresh the page.</p>
@@ -308,11 +312,10 @@ class Topic3Controller {
                         }
                     }
                 } else {
-                    console.warn('⚠️ Topic 3: SageMakerKnowledgeQuiz not available');
+                    console.warn('⚠️ Topic 3: SageMakerKnowledgeQuiz not available or container not found');
                     // Show fallback content
-                    const fallbackContainer = document.getElementById('sagemakerQuizContainer');
-                    if (fallbackContainer) {
-                        fallbackContainer.innerHTML = `
+                    if (quizContainer) {
+                        quizContainer.innerHTML = `
                             <div class="fallback-message">
                                 <h4>🎓 SageMaker Quiz</h4>
                                 <p>Interactive quiz component is loading...</p>
