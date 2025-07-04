@@ -83,8 +83,9 @@
                             <div class="nav-task-content" id="task11" aria-hidden="false">
                                 <a href="#" class="nav-link active tooltip" 
                                    data-tooltip="Extracting Data from Storage" 
-                                   onclick="pageController && pageController.goToTopicStart(); return false;"
-                                   role="button">
+                                   onclick="console.log('Topic 1 clicked!'); ContentController.loadTopic1(); return false;"
+                                   role="button"
+                                   style="cursor: pointer !important;">
                                     <i class="fas fa-circle-dot" aria-hidden="true"></i>
                                     Topic 1: Extracting Data from Storage
                                 </a>

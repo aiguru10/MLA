@@ -579,6 +579,49 @@ const ContentController = {
     },
 
     /**
+     * Load Topic 1: Extracting Data from Storage
+     */
+    async loadTopic1() {
+        try {
+            Utils.log('Loading Topic 1: Extracting Data from Storage...');
+            console.log('Topic 1 link clicked - starting load process');
+            
+            // Cleanup any active controllers first
+            if (window.topic2PageController && window.topic2PageController.cleanup) {
+                window.topic2PageController.cleanup();
+                window.topic2PageController = null;
+            }
+            if (window.topic3Controller && window.topic3Controller.cleanup) {
+                window.topic3Controller.cleanup();
+                window.topic3Controller = null;
+            }
+            
+            // Ensure pageController is available and properly initialized
+            if (!window.pageController || !window.pageController.initialized) {
+                console.log('Creating/reinitializing pageController for Topic 1...');
+                if (typeof PageController !== 'undefined') {
+                    window.pageController = new PageController();
+                    await window.pageController.init({
+                        taskId: '1.1',
+                        topicId: '1',
+                        title: 'Extracting Data from AWS Storage'
+                    });
+                } else {
+                    console.error('PageController class not available');
+                }
+            }
+            
+            // Load Topic 1 content using the existing method
+            await this.loadContent('task11-topic1');
+            
+            Utils.log('Topic 1 loaded successfully');
+        } catch (error) {
+            console.error('Error loading Topic 1:', error);
+            Utils.showError('Failed to load Topic 1. Please try again.');
+        }
+    }
+
+    /**
      * Load Topic 2: Data Formats
      */
     async loadTopic2() {
