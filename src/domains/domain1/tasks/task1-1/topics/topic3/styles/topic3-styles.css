@@ -243,6 +243,7 @@
 .tool-details {
     display: grid;
     gap: 1.5rem;
+    color: #333;
 }
 
 .detail-section h4 {
@@ -683,6 +684,7 @@
     background: #f8f9fa;
     display: none;
     border-top: 3px solid #FF6B6B;
+    color: #333;
 }
 
 .scenario-card.expanded .scenario-details {
@@ -710,6 +712,7 @@
     border-left: 5px solid;
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    color: #333;
 }
 
 .scenario-details .challenge {
