@@ -519,11 +519,36 @@
     overflow: hidden;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .scenario-card:hover {
     border-color: #FF6B6B;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.scenario-card::after {
+    content: '👆 Click to expand';
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: rgba(255, 107, 107, 0.9);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.scenario-card:hover::after {
+    opacity: 1;
+}
+
+.scenario-card.expanded::after {
+    content: '👆 Click to collapse';
+    opacity: 1;
 }
 
 .scenario-header {
@@ -541,6 +566,30 @@
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+}
+
+.click-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.click-hint i {
+    transition: transform 0.3s ease;
+}
+
+.scenario-card.expanded .click-hint i {
+    transform: rotate(180deg);
+}
+
+.scenario-card.expanded .click-hint span::after {
+    content: ' (click to collapse)';
 }
 
 .scenario-details {

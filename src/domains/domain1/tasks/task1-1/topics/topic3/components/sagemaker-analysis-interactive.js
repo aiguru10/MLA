@@ -92,8 +92,10 @@ class InteractiveSageMakerAnalysis {
             });
         });
 
-        // Setup interactive elements
-        this.setupInteractiveElements();
+        // Setup interactive elements after a short delay to ensure DOM is ready
+        setTimeout(() => {
+            this.setupInteractiveElements();
+        }, 100);
     }
 
     switchTab(tabName) {
@@ -112,22 +114,51 @@ class InteractiveSageMakerAnalysis {
     }
 
     setupInteractiveElements() {
-        // Setup scenario cards
-        const scenarioCards = document.querySelectorAll('.scenario-card');
-        scenarioCards.forEach(card => {
-            card.addEventListener('click', () => {
-                card.classList.toggle('expanded');
+        // Setup scenario cards - use more specific selector
+        const scenarioCards = document.querySelectorAll('.sagemaker-analysis-wrapper .scenario-card');
+        console.log(`🟢 Found ${scenarioCards.length} scenario cards to setup`);
+        
+        scenarioCards.forEach((card, index) => {
+            // Remove any existing listeners by cloning
+            const newCard = card.cloneNode(true);
+            card.parentNode.replaceChild(newCard, card);
+            
+            newCard.addEventListener('click', (e) => {
+                console.log(`🟢 Scenario card clicked: ${newCard.dataset.scenario}`);
+                newCard.classList.toggle('expanded');
+                
+                // Add visual feedback
+                if (newCard.classList.contains('expanded')) {
+                    newCard.style.transform = 'scale(1.02)';
+                } else {
+                    newCard.style.transform = 'scale(1)';
+                }
+            });
+            
+            // Add hover effects
+            newCard.addEventListener('mouseenter', () => {
+                if (!newCard.classList.contains('expanded')) {
+                    newCard.style.transform = 'scale(1.01)';
+                }
+            });
+            
+            newCard.addEventListener('mouseleave', () => {
+                if (!newCard.classList.contains('expanded')) {
+                    newCard.style.transform = 'scale(1)';
+                }
             });
         });
 
         // Setup feature comparison toggles
-        const comparisonToggles = document.querySelectorAll('.comparison-toggle');
+        const comparisonToggles = document.querySelectorAll('.sagemaker-analysis-wrapper .comparison-toggle');
         comparisonToggles.forEach(toggle => {
             toggle.addEventListener('click', (e) => {
                 const feature = e.target.dataset.feature;
                 this.toggleFeatureComparison(feature);
             });
         });
+        
+        console.log(`🟢 Setup complete: ${scenarioCards.length} scenario cards, ${comparisonToggles.length} comparison toggles`);
     }
 
     toggleFeatureComparison(feature) {
@@ -242,6 +273,10 @@ class InteractiveSageMakerAnalysis {
                                 </div>
                                 <h6>E-commerce Data Cleanup</h6>
                                 <p>Cleaning messy customer purchase data</p>
+                                <div class="click-hint">
+                                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                                    <span>Click to see how Data Wrangler solves this</span>
+                                </div>
                             </div>
                             <div class="scenario-details">
                                 <div class="challenge">
@@ -269,6 +304,10 @@ class InteractiveSageMakerAnalysis {
                                 </div>
                                 <h6>Financial Risk Modeling</h6>
                                 <p>Feature engineering for credit scoring</p>
+                                <div class="click-hint">
+                                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                                    <span>Click to see how Data Wrangler solves this</span>
+                                </div>
                             </div>
                             <div class="scenario-details">
                                 <div class="challenge">
@@ -296,6 +335,10 @@ class InteractiveSageMakerAnalysis {
                                 </div>
                                 <h6>Healthcare Analytics</h6>
                                 <p>Patient data standardization</p>
+                                <div class="click-hint">
+                                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                                    <span>Click to see how Data Wrangler solves this</span>
+                                </div>
                             </div>
                             <div class="scenario-details">
                                 <div class="challenge">
