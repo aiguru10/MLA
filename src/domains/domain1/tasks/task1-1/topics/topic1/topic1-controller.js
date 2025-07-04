@@ -344,9 +344,10 @@ class Topic1Controller {
      * Update navigation buttons state
      */
     updateNavigationButtons() {
-        // Don't update navigation if Topic 2 controller is active
-        if (window.topic2PageController && window.topic2PageController.initialized) {
-            console.log('🔵 Topic 1: Skipping navigation update - Topic 2 is active');
+        // Don't update navigation if other topic controllers are active
+        if ((window.topic2PageController && window.topic2PageController.initialized) ||
+            (window.topic3Controller && window.topic3Controller.initialized)) {
+            console.log('🔵 Topic 1: Skipping navigation update - other topic controller is active');
             return;
         }
         

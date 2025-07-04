@@ -1,0 +1,1031 @@
+/**
+ * Topic 3 Styles - SageMaker Ingestion
+ * Comprehensive styling for SageMaker Data Wrangler and Feature Store content
+ * 
+ * Color Scheme:
+ * - Data Wrangler: #FF6B6B (Red/Pink)
+ * - Feature Store: #4ECDC4 (Teal/Cyan)
+ * - AWS Orange: #FF9900
+ * - Success: #28a745
+ * - Warning: #ffc107
+ * - Danger: #dc3545
+ */
+
+/* ==========================================================================
+   Topic 3 Base Styles
+   ========================================================================== */
+
+.topic3-container {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Learning Objectives Styles */
+.learning-objectives-container {
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.objectives-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.objectives-header .header-icon {
+    font-size: 3rem;
+    color: #FF9900;
+    margin-bottom: 1rem;
+}
+
+.objectives-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.objectives-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.objective-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.objective-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.objective-card .objective-icon {
+    font-size: 2.5rem;
+    color: #FF9900;
+    margin-bottom: 1rem;
+}
+
+.objective-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.objective-card p {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.objective-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.objective-card li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.objective-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #FF9900;
+    font-weight: bold;
+}
+
+.objectives-summary {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.objectives-summary .summary-icon {
+    font-size: 3rem;
+    color: #FF9900;
+    margin-right: 2rem;
+}
+
+.objectives-summary h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* SageMaker Overview Styles */
+.sagemaker-overview-container {
+    padding: 2rem;
+}
+
+.overview-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.overview-header .header-icon {
+    font-size: 3rem;
+    color: #FF9900;
+    margin-bottom: 1rem;
+}
+
+.overview-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.overview-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 0;
+}
+
+.analogy-section {
+    margin-bottom: 3rem;
+}
+
+.analogy-card {
+    background: linear-gradient(135deg, #FF9900, #FFB84D);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.analogy-card .analogy-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.analogy-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.tools-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.tool-card {
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.tool-card.data-wrangler {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+    color: white;
+}
+
+.tool-card.feature-store {
+    background: linear-gradient(135deg, #4ECDC4, #7EDDD7);
+    color: white;
+}
+
+.tool-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.tool-header .tool-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.tool-header h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.tool-tagline {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.tool-analogy {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tool-details {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.detail-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-section li {
+    padding: 0.3rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.detail-section li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Workflow Integration Styles */
+.workflow-integration {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.integration-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.integration-header h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.workflow-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.workflow-step {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+}
+
+.workflow-step .step-number {
+    background: #FF9900;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+}
+
+.workflow-step h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.workflow-arrow {
+    font-size: 2rem;
+    color: #FF9900;
+    font-weight: bold;
+}
+
+.next-steps {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 12px;
+}
+
+.next-steps-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+/* Interactive Analysis Styles */
+.sagemaker-analysis-wrapper {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.analysis-header {
+    background: linear-gradient(135deg, #FF9900, #FFB84D);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.analysis-header h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.analysis-tabs {
+    display: flex;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.tab-button:hover {
+    background: rgba(255, 153, 0, 0.1);
+}
+
+.tab-button.active {
+    background: #FF9900;
+    color: white;
+}
+
+.analysis-content {
+    padding: 2rem;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Overview Content Styles */
+.overview-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.learning-path {
+    margin: 2rem 0;
+}
+
+.path-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.path-step.completed {
+    background: rgba(40, 167, 69, 0.1);
+    border-left: 4px solid #28a745;
+}
+
+.path-step.current {
+    background: rgba(255, 153, 0, 0.1);
+    border-left: 4px solid #FF9900;
+}
+
+.path-step.upcoming {
+    background: rgba(108, 117, 125, 0.1);
+    border-left: 4px solid #6c757d;
+}
+
+.path-step .step-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.path-step.completed .step-icon {
+    background: #28a745;
+    color: white;
+}
+
+.path-step.current .step-icon {
+    background: #FF9900;
+    color: white;
+}
+
+.path-step.upcoming .step-icon {
+    background: #6c757d;
+    color: white;
+}
+
+.exploration-guide {
+    margin-top: 3rem;
+}
+
+.guide-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.guide-card {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.guide-card:hover {
+    border-color: #FF9900;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.guide-card .guide-icon {
+    font-size: 2.5rem;
+    color: #FF9900;
+    margin-bottom: 1rem;
+}
+
+/* Scenarios Styles */
+.scenarios-section {
+    margin: 2rem 0;
+}
+
+.scenarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.scenario-card {
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scenario-card:hover {
+    border-color: #FF6B6B;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.scenario-header {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+    color: white;
+    padding: 1.5rem;
+}
+
+.scenario-header .scenario-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.scenario-header h6 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.scenario-details {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    display: none;
+}
+
+.scenario-card.expanded .scenario-details {
+    display: block;
+}
+
+.scenario-details .challenge,
+.scenario-details .solution,
+.scenario-details .benefit {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.scenario-details .challenge {
+    background: rgba(220, 53, 69, 0.1);
+    border-left: 4px solid #dc3545;
+}
+
+.scenario-details .solution {
+    background: rgba(40, 167, 69, 0.1);
+    border-left: 4px solid #28a745;
+}
+
+.scenario-details .benefit {
+    background: rgba(255, 193, 7, 0.1);
+    border-left: 4px solid #ffc107;
+}
+
+/* Capabilities Showcase */
+.capabilities-showcase {
+    margin: 3rem 0;
+}
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.capability-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.capability-item:hover {
+    transform: translateY(-3px);
+}
+
+.capability-item .capability-icon {
+    font-size: 2.5rem;
+    color: #FF6B6B;
+    margin-bottom: 1rem;
+}
+
+.capability-item h6 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Feature Store Content Styles */
+.feature-store-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.architecture-section {
+    margin: 2rem 0;
+}
+
+.architecture-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.arch-component {
+    background: white;
+    border: 2px solid #4ECDC4;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    flex: 1;
+    min-width: 180px;
+    max-width: 220px;
+}
+
+.arch-component .arch-icon {
+    font-size: 2.5rem;
+    color: #4ECDC4;
+    margin-bottom: 1rem;
+}
+
+.arch-component h6 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.arch-arrow {
+    font-size: 2rem;
+    color: #4ECDC4;
+    font-weight: bold;
+}
+
+.use-cases-section {
+    margin: 3rem 0;
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.use-case-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.use-case-card:hover {
+    transform: translateY(-5px);
+}
+
+.use-case-header {
+    background: linear-gradient(135deg, #4ECDC4, #7EDDD7);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.use-case-header .use-case-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.use-case-header h6 {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.use-case-content {
+    padding: 1.5rem;
+}
+
+.benefits-list {
+    margin-top: 1rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    gap: 0.5rem;
+}
+
+.benefit-item i {
+    color: #28a745;
+    margin-top: 0.2rem;
+}
+
+/* Feature Lifecycle */
+.feature-lifecycle {
+    margin: 3rem 0;
+}
+
+.lifecycle-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.lifecycle-step {
+    background: white;
+    border: 2px solid #4ECDC4;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    flex: 1;
+    min-width: 180px;
+    max-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.lifecycle-step:hover {
+    background: rgba(78, 205, 196, 0.1);
+}
+
+.lifecycle-step .step-number {
+    background: #4ECDC4;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+}
+
+.lifecycle-step h6 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Comparison Content Styles */
+.comparison-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.comparison-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.comparison-intro h4 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.comparison-table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.comparison-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.comparison-table .data-wrangler-col {
+    background: rgba(255, 107, 107, 0.1);
+    color: #FF6B6B;
+}
+
+.comparison-table .feature-store-col {
+    background: rgba(78, 205, 196, 0.1);
+    color: #4ECDC4;
+}
+
+.comparison-table tr:hover {
+    background: rgba(255, 153, 0, 0.05);
+}
+
+.comparison-table tr.highlighted {
+    background: rgba(255, 153, 0, 0.1);
+    border-left: 4px solid #FF9900;
+}
+
+/* Decision Matrix */
+.decision-matrix {
+    margin: 3rem 0;
+}
+
+.matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.matrix-scenario {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.matrix-scenario:hover {
+    transform: translateY(-3px);
+}
+
+.scenario-header {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.scenario-header h6 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.recommendation {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.recommendation.data-wrangler {
+    background: rgba(255, 107, 107, 0.2);
+    color: #FF6B6B;
+}
+
+.recommendation.feature-store {
+    background: rgba(78, 205, 196, 0.2);
+    color: #4ECDC4;
+}
+
+.recommendation.both {
+    background: rgba(255, 153, 0, 0.2);
+    color: #FF9900;
+}
+
+.scenario-details {
+    padding: 1.5rem;
+}
+
+.reasoning {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #FF9900;
+}
+
+/* Integration Workflow */
+.integration-workflow {
+    margin: 3rem 0;
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.workflow-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.workflow-step {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.workflow-step .step-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.workflow-step .step-icon.data-wrangler {
+    background: #FF6B6B;
+}
+
+.workflow-step .step-icon.feature-store {
+    background: #4ECDC4;
+}
+
+.workflow-step .step-icon.export {
+    background: #6c757d;
+}
+
+.workflow-step .step-icon.serving {
+    background: #28a745;
+}
+
+.workflow-step h6 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .objectives-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tools-comparison {
+        grid-template-columns: 1fr;
+    }
+    
+    .workflow-steps,
+    .architecture-diagram,
+    .lifecycle-steps,
+    .workflow-diagram {
+        flex-direction: column;
+    }
+    
+    .workflow-arrow,
+    .arch-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .analysis-tabs {
+        flex-direction: column;
+    }
+    
+    .comparison-table-container {
+        font-size: 0.9rem;
+    }
+    
+    .matrix-grid,
+    .use-cases-grid,
+    .scenarios-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .objectives-header h2 {
+        font-size: 2rem;
+    }
+    
+    .overview-header h2 {
+        font-size: 2rem;
+    }
+    
+    .tool-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .objective-card,
+    .tool-card {
+        padding: 1.5rem;
+    }
+    
+    .analysis-header {
+        padding: 1.5rem;
+    }
+    
+    .analysis-content {
+        padding: 1rem;
+    }
+}

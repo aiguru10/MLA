@@ -739,6 +739,13 @@ class Topic2Controller {
     }
 
     updateNavigationButtons() {
+        // Don't update navigation if other topic controllers are active
+        if ((window.pageController && window.pageController.initialized && window.pageController !== this) ||
+            (window.topic3Controller && window.topic3Controller.initialized)) {
+            console.log('🟠 Topic 2: Skipping navigation update - other topic controller is active');
+            return;
+        }
+        
         const prevBtn = DOMUtils.getElementById('prevPageBtn');
         const nextBtn = DOMUtils.getElementById('nextPageBtn');
 

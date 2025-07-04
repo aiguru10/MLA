@@ -602,6 +602,40 @@ const ContentController = {
             this.showErrorContent('Failed to load Topic 2: Data Formats');
         }
     },
+
+    /**
+     * Load Topic 3: SageMaker Ingestion
+     */
+    async loadTopic3() {
+        try {
+            Utils.log('Loading Topic 3: SageMaker Ingestion...');
+            console.log('Topic 3 link clicked - starting load process');
+            
+            // Initialize Topic 3 page controller
+            if (typeof Topic3Controller !== 'undefined') {
+                console.log('Topic3Controller found, initializing...');
+                const topic3Controller = new Topic3Controller();
+                await topic3Controller.init({
+                    title: 'Ingesting Data into SageMaker',
+                    subtitle: 'Master SageMaker Data Wrangler and Feature Store for ML workflows'
+                });
+                
+                // Store reference for cleanup
+                window.topic3Controller = topic3Controller;
+                window.topic3PageController = topic3Controller; // Maintain naming consistency
+                
+                Utils.log('Topic 3 loaded successfully');
+                console.log('Topic 3 loaded successfully');
+            } else {
+                console.error('Topic3Controller not available');
+                throw new Error('Topic3Controller not available');
+            }
+            
+        } catch (error) {
+            console.error('Failed to load Topic 3:', error);
+            this.showErrorContent('Failed to load Topic 3: SageMaker Ingestion');
+        }
+    },
     
     /**
      * Reset content controller

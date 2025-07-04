@@ -29,8 +29,11 @@
     <link rel="stylesheet" href="domains/domain1/tasks/task1-1/topics/topic2/styles/topic2-styles.css">
     <link rel="stylesheet" href="domains/domain1/tasks/task1-1/topics/topic2/styles/format-analysis-styles.css">
     <link rel="stylesheet" href="domains/domain1/tasks/task1-1/topics/topic2/styles/format-puzzle-styles.css">
-    <link rel="stylesheet" href="format-analysis-styles.css">
-    <link rel="stylesheet" href="format-puzzle-styles.css">
+    
+    <!-- Domain 1 - Task 1.1 - Topic 3 Styles -->
+    <link rel="stylesheet" href="domains/domain1/tasks/task1-1/topics/topic3/styles/topic3-styles.css">
+    <link rel="stylesheet" href="domains/domain1/tasks/task1-1/topics/topic3/styles/sagemaker-puzzle-styles.css">
+    <link rel="stylesheet" href="domains/domain1/tasks/task1-1/topics/topic3/styles/sagemaker-quiz-styles.css">
 </head>
 
 <body>
@@ -92,6 +95,14 @@
                                    style="cursor: pointer !important;">
                                     <i class="fas fa-circle-dot" aria-hidden="true"></i>
                                     Topic 2: Data Formats
+                                </a>
+                                <a href="#" class="nav-link tooltip" 
+                                   data-tooltip="Ingesting Data into SageMaker"
+                                   onclick="console.log('Topic 3 clicked!'); ContentController.loadTopic3(); return false;"
+                                   role="button"
+                                   style="cursor: pointer !important;">
+                                    <i class="fas fa-circle-dot" aria-hidden="true"></i>
+                                    Topic 3: SageMaker Ingestion
                                 </a>
                                 <a href="#" class="nav-link coming-soon tooltip" 
                                    data-tooltip="Coming Soon" 
@@ -253,5 +264,11 @@
     <script src="domains/domain1/tasks/task1-1/topics/topic2/components/format-analysis-interactive.js"></script>
     <script src="domains/domain1/tasks/task1-1/topics/topic2/components/format-puzzle-game.js"></script>
     <script src="domains/domain1/tasks/task1-1/topics/topic2/components/format-selection-quiz.js"></script>
+    
+    <!-- Domain 1 - Task 1.1 - Topic 3 (SageMaker Ingestion) -->
+    <script src="domains/domain1/tasks/task1-1/topics/topic3/topic3-controller.js"></script>
+    <script src="domains/domain1/tasks/task1-1/topics/topic3/components/sagemaker-analysis-interactive.js"></script>
+    <script src="domains/domain1/tasks/task1-1/topics/topic3/components/sagemaker-ingestion-puzzle.js"></script>
+    <script src="domains/domain1/tasks/task1-1/topics/topic3/components/sagemaker-knowledge-quiz.js"></script>
 </body>
 </html>
