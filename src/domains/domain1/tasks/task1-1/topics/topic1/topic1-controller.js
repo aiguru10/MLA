@@ -1,16 +1,16 @@
 /**
- * MLA Tutorial - Page Controller
- * Manages multi-page navigation within lessons
+ * MLA Tutorial - Topic 1 Controller (AWS Storage Services)
+ * Manages multi-page navigation within Topic 1 lessons
  * 
  * This controller handles the conversion of single-page lessons into
- * multi-page experiences with previous/next navigation.
+ * multi-page experiences with previous/next navigation for Topic 1.
  * 
  * @author MLA Tutorial Team
  * @version 1.0.0
  * @since 2025-07-01
  */
 
-class PageController {
+class Topic1Controller {
     constructor() {
         this.currentPageIndex = 0;
         this.pages = [];
@@ -647,4 +647,6 @@ class PageController {
 }
 
 // Export for global access
-window.PageController = PageController;
+// Export for global access
+window.Topic1Controller = Topic1Controller;
+window.PageController = Topic1Controller; // Maintain backward compatibility

@@ -1,5 +1,5 @@
 /**
- * MLA Tutorial - Topic 2 Page Controller
+ * MLA Tutorial - Topic 2 Controller (Data Formats)
  * Manages multi-page navigation for Data Formats lesson
  * 
  * Topic 2: Choosing Appropriate Data Formats
@@ -10,7 +10,7 @@
  * @since 2025-07-02
  */
 
-class Topic2PageController {
+class Topic2Controller {
     constructor() {
         this.currentPageIndex = 0;
         this.pages = [];
@@ -775,7 +775,11 @@ class Topic2PageController {
     }
 }
 
+// Export for global access
+window.Topic2Controller = Topic2Controller;
+window.Topic2PageController = Topic2Controller; // Maintain backward compatibility
+
 // Export for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Topic2PageController;
+    module.exports = Topic2Controller;
 }

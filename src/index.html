@@ -15,14 +15,20 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Local Styles -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="sidebar-clean.css">
-    <link rel="stylesheet" href="page-styles.css">
-    <link rel="stylesheet" href="service-analysis-styles.css">
-    <link rel="stylesheet" href="puzzle-styles.css">
-    <link rel="stylesheet" href="quiz-styles.css">
-    <link rel="stylesheet" href="topic2-styles.css">
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="shared/styles/styles.css">
+    <link rel="stylesheet" href="shared/styles/sidebar-clean.css">
+    
+    <!-- Domain 1 - Task 1.1 - Topic 1 Styles -->
+    <link rel="stylesheet" href="domains/domain1/tasks/task1-1/topics/topic1/styles/page-styles.css">
+    <link rel="stylesheet" href="domains/domain1/tasks/task1-1/topics/topic1/styles/service-analysis-styles.css">
+    <link rel="stylesheet" href="domains/domain1/tasks/task1-1/topics/topic1/styles/puzzle-styles.css">
+    <link rel="stylesheet" href="domains/domain1/tasks/task1-1/topics/topic1/styles/quiz-styles.css">
+    
+    <!-- Domain 1 - Task 1.1 - Topic 2 Styles -->
+    <link rel="stylesheet" href="domains/domain1/tasks/task1-1/topics/topic2/styles/topic2-styles.css">
+    <link rel="stylesheet" href="domains/domain1/tasks/task1-1/topics/topic2/styles/format-analysis-styles.css">
+    <link rel="stylesheet" href="domains/domain1/tasks/task1-1/topics/topic2/styles/format-puzzle-styles.css">
     <link rel="stylesheet" href="format-analysis-styles.css">
     <link rel="stylesheet" href="format-puzzle-styles.css">
 </head>
@@ -227,20 +233,25 @@
     
     <!-- JavaScript Modules -->
     <!-- Load modules in dependency order -->
-    <script src="app.js"></script>
-    <script src="navigation.js"></script>
-    <script src="ui-controller.js"></script>
-    <script src="content-controller.js"></script>
-    <script src="service-analysis-interactive.js"></script>
-    <script src="interactive-puzzle.js"></script>
-    <script src="interactive-quiz.js"></script>
-    <script src="page-controller.js"></script>
-    <script src="puzzle-game.js"></script>
-    <script src="quiz-controller.js"></script>
-    <script src="service-analysis.js"></script>
-    <script src="topic2-page-controller.js"></script>
-    <script src="format-analysis-interactive.js"></script>
-    <script src="format-puzzle-game.js"></script>
-    <script src="format-selection-quiz.js"></script>
+    <!-- Core Application Scripts -->
+    <script src="shared/utils/app.js"></script>
+    <script src="shared/utils/navigation.js"></script>
+    <script src="shared/utils/ui-controller.js"></script>
+    <script src="shared/utils/content-controller.js"></script>
+    
+    <!-- Domain 1 - Task 1.1 - Topic 1 (AWS Storage Services) -->
+    <script src="domains/domain1/tasks/task1-1/topics/topic1/topic1-controller.js"></script>
+    <script src="domains/domain1/tasks/task1-1/topics/topic1/components/service-analysis.js"></script>
+    <script src="domains/domain1/tasks/task1-1/topics/topic1/components/service-analysis-interactive.js"></script>
+    <script src="domains/domain1/tasks/task1-1/topics/topic1/components/interactive-puzzle.js"></script>
+    <script src="domains/domain1/tasks/task1-1/topics/topic1/components/puzzle-game.js"></script>
+    <script src="domains/domain1/tasks/task1-1/topics/topic1/components/interactive-quiz.js"></script>
+    <script src="domains/domain1/tasks/task1-1/topics/topic1/components/quiz-controller.js"></script>
+    
+    <!-- Domain 1 - Task 1.1 - Topic 2 (Data Formats) -->
+    <script src="domains/domain1/tasks/task1-1/topics/topic2/topic2-controller.js"></script>
+    <script src="domains/domain1/tasks/task1-1/topics/topic2/components/format-analysis-interactive.js"></script>
+    <script src="domains/domain1/tasks/task1-1/topics/topic2/components/format-puzzle-game.js"></script>
+    <script src="domains/domain1/tasks/task1-1/topics/topic2/components/format-selection-quiz.js"></script>
 </body>
 </html>
