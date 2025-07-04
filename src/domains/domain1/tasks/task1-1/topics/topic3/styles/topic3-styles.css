@@ -202,12 +202,12 @@
 
 .tool-card.data-wrangler {
     background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
-    color: white;
+    color: #333;
 }
 
 .tool-card.feature-store {
     background: linear-gradient(135deg, #4ECDC4, #7EDDD7);
-    color: white;
+    color: #333;
 }
 
 .tool-header {
@@ -311,7 +311,7 @@
 
 .workflow-step .step-number {
     background: #FF9900;
-    color: white;
+    color: #333;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -338,7 +338,7 @@
     text-align: center;
     padding: 2rem;
     background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
+    color: #333;
     border-radius: 12px;
 }
 
@@ -357,7 +357,7 @@
 
 .analysis-header {
     background: linear-gradient(135deg, #FF9900, #FFB84D);
-    color: white;
+    color: #333;
     padding: 2rem;
     text-align: center;
 }
@@ -393,7 +393,7 @@
 
 .tab-button.active {
     background: #FF9900;
-    color: white;
+    color: #333;
 }
 
 .analysis-content {
@@ -455,17 +455,17 @@
 
 .path-step.completed .step-icon {
     background: #28a745;
-    color: white;
+    color: #333;
 }
 
 .path-step.current .step-icon {
     background: #FF9900;
-    color: white;
+    color: #333;
 }
 
 .path-step.upcoming .step-icon {
     background: #6c757d;
-    color: white;
+    color: #333;
 }
 
 .exploration-guide {
@@ -520,7 +520,7 @@
     margin-bottom: 3rem;
     padding: 2rem;
     background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
-    color: white;
+    color: #333;
     border-radius: 12px;
 }
 
@@ -539,7 +539,7 @@
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: white;
+    color: #333;
 }
 
 .tool-intro p {
@@ -598,8 +598,8 @@
     position: absolute;
     top: 15px;
     right: 15px;
-    background: rgba(255, 107, 107, 0.9);
-    color: white;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
     padding: 6px 12px;
     border-radius: 15px;
     font-size: 0.8rem;
@@ -616,12 +616,13 @@
 .scenario-card.expanded::after {
     content: '👆 Click to collapse';
     opacity: 1;
-    background: rgba(40, 167, 69, 0.9);
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
 }
 
 .scenario-header {
     background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
-    color: white;
+    color: #333;
     padding: 2rem;
     position: relative;
 }
@@ -656,7 +657,8 @@
     gap: 0.5rem;
     margin-top: 1.5rem;
     padding: 0.8rem;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
     border-radius: 8px;
     font-size: 0.95rem;
     font-weight: 500;
@@ -893,7 +895,7 @@
 
 .use-case-header {
     background: linear-gradient(135deg, #4ECDC4, #7EDDD7);
-    color: white;
+    color: #333;
     padding: 1.5rem;
     text-align: center;
 }
@@ -960,7 +962,7 @@
 
 .lifecycle-step .step-number {
     background: #4ECDC4;
-    color: white;
+    color: #333;
     width: 40px;
     height: 40px;
     border-radius: 50%;
