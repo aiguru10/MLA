@@ -645,6 +645,28 @@ class Topic1Controller {
             window.pageController.renderCurrentPage();
         }
     }
+
+    /**
+     * Cleanup and deactivate controller
+     */
+    cleanup() {
+        console.log('🔵 Topic 1: Cleaning up controller');
+        this.initialized = false;
+        this.currentPageIndex = 0;
+        this.pages = [];
+        this.lessonData = null;
+        
+        // Clear navigation button handlers to prevent interference
+        const prevBtn = DOMUtils.getElementById('prevPageBtn');
+        const nextBtn = DOMUtils.getElementById('nextPageBtn');
+        
+        if (prevBtn) {
+            prevBtn.onclick = null;
+        }
+        if (nextBtn) {
+            nextBtn.onclick = null;
+        }
+    }
 }
 
 // Export for global access

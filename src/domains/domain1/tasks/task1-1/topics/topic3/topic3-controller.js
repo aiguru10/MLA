@@ -275,12 +275,8 @@ class Topic3Controller {
     }
 
     updateNavigationButtons() {
-        // Don't update navigation if other topic controllers are active
-        if ((window.pageController && window.pageController.initialized && window.pageController !== this) ||
-            (window.topic2PageController && window.topic2PageController.initialized)) {
-            console.log('🟢 Topic 3: Skipping navigation update - other controller is active');
-            return;
-        }
+        // Topic 3 should always control navigation when it's active
+        console.log('🟢 Topic 3: Taking control of navigation buttons');
         
         const prevBtn = DOMUtils.getElementById('prevPageBtn');
         const nextBtn = DOMUtils.getElementById('nextPageBtn');

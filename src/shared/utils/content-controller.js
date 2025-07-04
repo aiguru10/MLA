@@ -146,6 +146,14 @@ const ContentController = {
      * Render Task 1.1 Topic 1 content
      */
     async renderTask11Topic1() {
+        // Cleanup any active topic controllers first
+        if (window.topic2PageController && window.topic2PageController.cleanup) {
+            window.topic2PageController.cleanup();
+        }
+        if (window.topic3Controller && window.topic3Controller.cleanup) {
+            window.topic3Controller.cleanup();
+        }
+        
         // For Task 1.1 Topic 1, always render basic structure and let PageController handle the content
         Utils.log('Rendering basic structure for Task 1.1 Topic 1 - PageController will take over');
         
@@ -578,6 +586,14 @@ const ContentController = {
             Utils.log('Loading Topic 2: Data Formats...');
             console.log('Topic 2 link clicked - starting load process');
             
+            // Cleanup any active controllers first
+            if (window.pageController && window.pageController.cleanup) {
+                window.pageController.cleanup();
+            }
+            if (window.topic3Controller && window.topic3Controller.cleanup) {
+                window.topic3Controller.cleanup();
+            }
+            
             // Initialize Topic 2 page controller
             if (typeof Topic2PageController !== 'undefined') {
                 console.log('Topic2PageController found, initializing...');
@@ -610,6 +626,14 @@ const ContentController = {
         try {
             Utils.log('Loading Topic 3: SageMaker Ingestion...');
             console.log('Topic 3 link clicked - starting load process');
+            
+            // Cleanup any active controllers first
+            if (window.pageController && window.pageController.cleanup) {
+                window.pageController.cleanup();
+            }
+            if (window.topic2PageController && window.topic2PageController.cleanup) {
+                window.topic2PageController.cleanup();
+            }
             
             // Initialize Topic 3 page controller
             if (typeof Topic3Controller !== 'undefined') {

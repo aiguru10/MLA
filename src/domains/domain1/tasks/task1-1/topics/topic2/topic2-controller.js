@@ -739,12 +739,8 @@ class Topic2Controller {
     }
 
     updateNavigationButtons() {
-        // Don't update navigation if other topic controllers are active
-        if ((window.pageController && window.pageController.initialized && window.pageController !== this) ||
-            (window.topic3Controller && window.topic3Controller.initialized)) {
-            console.log('🟠 Topic 2: Skipping navigation update - other topic controller is active');
-            return;
-        }
+        // Topic 2 should always control navigation when it's active
+        console.log('🟠 Topic 2: Taking control of navigation buttons');
         
         const prevBtn = DOMUtils.getElementById('prevPageBtn');
         const nextBtn = DOMUtils.getElementById('nextPageBtn');
@@ -775,10 +771,22 @@ class Topic2Controller {
     }
 
     cleanup() {
+        console.log('🟠 Topic 2: Cleaning up controller');
         this.initialized = false;
         this.currentPageIndex = 0;
         this.pages = [];
         this.lessonData = null;
+        
+        // Clear navigation button handlers to prevent interference
+        const prevBtn = DOMUtils.getElementById('prevPageBtn');
+        const nextBtn = DOMUtils.getElementById('nextPageBtn');
+        
+        if (prevBtn) {
+            prevBtn.onclick = null;
+        }
+        if (nextBtn) {
+            nextBtn.onclick = null;
+        }
     }
 }
 
