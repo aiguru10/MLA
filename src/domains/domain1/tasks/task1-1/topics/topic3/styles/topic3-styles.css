@@ -506,40 +506,107 @@
     margin: 2rem 0;
 }
 
+/* Data Wrangler Content Styles */
+.data-wrangler-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+}
+
+.tool-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+    color: white;
+    border-radius: 12px;
+}
+
+.tool-intro .tool-header {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tool-intro .tool-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #FFE066;
+}
+
+.tool-intro h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.tool-intro p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.scenarios-section {
+    margin: 3rem 0;
+}
+
+.scenarios-section h5 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.scenarios-section > p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .scenarios-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .scenario-card {
+    background: white;
     border: 2px solid #e9ecef;
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .scenario-card:hover {
     border-color: #FF6B6B;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.2);
+    transform: translateY(-3px);
 }
 
 .scenario-card::after {
     content: '👆 Click to expand';
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 15px;
     background: rgba(255, 107, 107, 0.9);
     color: white;
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 10;
 }
 
 .scenario-card:hover::after {
@@ -549,39 +616,56 @@
 .scenario-card.expanded::after {
     content: '👆 Click to collapse';
     opacity: 1;
+    background: rgba(40, 167, 69, 0.9);
 }
 
 .scenario-header {
     background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
     color: white;
-    padding: 1.5rem;
+    padding: 2rem;
+    position: relative;
 }
 
 .scenario-header .scenario-icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    text-align: center;
 }
 
 .scenario-header h6 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.scenario-header p {
+    font-size: 1rem;
+    opacity: 0.95;
+    text-align: center;
+    margin-bottom: 1rem;
+    line-height: 1.4;
 }
 
 .click-hint {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    margin-top: 1rem;
-    padding: 0.5rem;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
-    font-size: 0.9rem;
-    opacity: 0.9;
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .click-hint i {
     transition: transform 0.3s ease;
+    font-size: 1.1rem;
 }
 
 .scenario-card.expanded .click-hint i {
@@ -593,73 +677,147 @@
 }
 
 .scenario-details {
-    padding: 1.5rem;
+    padding: 2rem;
     background: #f8f9fa;
     display: none;
+    border-top: 3px solid #FF6B6B;
 }
 
 .scenario-card.expanded .scenario-details {
     display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .scenario-details .challenge,
 .scenario-details .solution,
 .scenario-details .benefit {
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 5px solid;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .scenario-details .challenge {
-    background: rgba(220, 53, 69, 0.1);
-    border-left: 4px solid #dc3545;
+    border-left-color: #dc3545;
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.05), rgba(220, 53, 69, 0.02));
 }
 
 .scenario-details .solution {
-    background: rgba(40, 167, 69, 0.1);
-    border-left: 4px solid #28a745;
+    border-left-color: #28a745;
+    background: linear-gradient(135deg, rgba(40, 167, 69, 0.05), rgba(40, 167, 69, 0.02));
 }
 
 .scenario-details .benefit {
-    background: rgba(255, 193, 7, 0.1);
-    border-left: 4px solid #ffc107;
+    border-left-color: #ffc107;
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.05), rgba(255, 193, 7, 0.02));
+}
+
+.scenario-details strong {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.scenario-details p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+.scenario-details ul {
+    margin: 0.8rem 0 0 0;
+    padding-left: 1.2rem;
+}
+
+.scenario-details li {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.scenario-details li::marker {
+    color: #FF6B6B;
 }
 
 /* Capabilities Showcase */
 .capabilities-showcase {
-    margin: 3rem 0;
+    margin: 4rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+}
+
+.capabilities-showcase h5 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .capabilities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .capability-item {
     text-align: center;
-    padding: 1.5rem;
+    padding: 2rem;
     background: white;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .capability-item:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.15);
+    border-color: #FF6B6B;
 }
 
 .capability-item .capability-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: #FF6B6B;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    display: block;
 }
 
 .capability-item h6 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.capability-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
 }
 
 /* Feature Store Content Styles */
@@ -1049,6 +1207,49 @@
     .use-cases-grid,
     .scenarios-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Data Wrangler Mobile Improvements */
+    .data-wrangler-content {
+        padding: 1rem;
+    }
+    
+    .tool-intro {
+        padding: 1.5rem;
+    }
+    
+    .tool-intro h4 {
+        font-size: 1.5rem;
+    }
+    
+    .scenarios-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .scenario-card::after {
+        position: static;
+        display: block;
+        text-align: center;
+        margin-top: 1rem;
+        opacity: 1;
+    }
+    
+    .scenario-header {
+        padding: 1.5rem;
+    }
+    
+    .scenario-details {
+        padding: 1.5rem;
+    }
+    
+    .capabilities-showcase {
+        padding: 1.5rem;
+    }
+    
+    .capabilities-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 
