@@ -619,7 +619,7 @@ const ContentController = {
             console.error('Error loading Topic 1:', error);
             Utils.showError('Failed to load Topic 1. Please try again.');
         }
-    }
+    },
 
     /**
      * Load Topic 2: Data Formats
