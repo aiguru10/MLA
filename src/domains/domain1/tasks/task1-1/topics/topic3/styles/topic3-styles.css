@@ -26,7 +26,7 @@
     padding: 2rem;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 12px;
-    color: white;
+    color: #333;
     margin-bottom: 2rem;
 }
 
@@ -165,7 +165,7 @@
 
 .analogy-card {
     background: linear-gradient(135deg, #FF9900, #FFB84D);
-    color: white;
+    color: #333;
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
@@ -1150,7 +1150,7 @@
     justify-content: center;
     margin: 0 auto 1rem;
     font-size: 1.5rem;
-    color: white;
+    color: #333;
 }
 
 .workflow-step .step-icon.data-wrangler {
