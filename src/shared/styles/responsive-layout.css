@@ -1,0 +1,403 @@
+/**
+ * Comprehensive Responsive Layout System
+ * Optimizes screen space utilization and mobile experience
+ * 
+ * @author MLA Tutorial Team
+ * @version 1.0.0
+ * @since 2025-07-04
+ */
+
+/* ===== MAIN LAYOUT OPTIMIZATION ===== */
+
+/* Enhanced Main Content Layout */
+.main-content {
+    margin-left: 320px;
+    min-height: 100vh;
+    background: white;
+    transition: margin-left 0.3s ease;
+    padding: 0; /* Remove default padding to maximize space */
+}
+
+.main-content.expanded {
+    margin-left: 70px;
+}
+
+/* Optimized Content Container */
+.page-content {
+    width: 100%;
+    max-width: none; /* Remove width constraints */
+    padding: 1rem 2rem; /* Responsive padding */
+    box-sizing: border-box;
+}
+
+/* Enhanced Lesson Container */
+.lesson-container {
+    width: 100%;
+    max-width: none; /* Remove 1200px constraint */
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* ===== RESPONSIVE GRID SYSTEM ===== */
+
+/* Two-Column Layout for Better Space Utilization */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+}
+
+/* Large screens: Two-column layout */
+@media (min-width: 1200px) {
+    .content-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+    
+    .page-content {
+        padding: 2rem 3rem;
+    }
+    
+    .lesson-container {
+        padding: 2rem;
+    }
+}
+
+/* Extra large screens: Optimize for wide displays */
+@media (min-width: 1600px) {
+    .content-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+    
+    .page-content {
+        padding: 2rem 4rem;
+    }
+}
+
+/* ===== COMPONENT-SPECIFIC OPTIMIZATIONS ===== */
+
+/* Service Analysis Cards - Better Grid Layout */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 1200px) {
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+}
+
+/* Tools Comparison - Enhanced Side-by-Side */
+.tools-comparison {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .tools-comparison {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .tools-comparison {
+        gap: 3rem;
+    }
+}
+
+/* Interactive Components - Optimized Layout */
+.interactive-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 1rem;
+}
+
+@media (min-width: 1200px) {
+    .interactive-container {
+        padding: 2rem;
+    }
+}
+
+/* Puzzle and Quiz Components */
+.puzzle-wrapper,
+.quiz-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 1.5rem;
+}
+
+@media (min-width: 1200px) {
+    .puzzle-wrapper,
+    .quiz-container {
+        padding: 2rem;
+    }
+}
+
+/* ===== MOBILE-FIRST RESPONSIVE DESIGN ===== */
+
+/* Mobile Devices (up to 767px) */
+@media (max-width: 767px) {
+    .main-content {
+        margin-left: 0;
+        padding: 0;
+    }
+    
+    .main-content.expanded {
+        margin-left: 0;
+    }
+    
+    .page-content {
+        padding: 1rem;
+    }
+    
+    .lesson-container {
+        padding: 0.5rem;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .tools-comparison {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    /* Mobile-optimized interactive components */
+    .puzzle-wrapper,
+    .quiz-container,
+    .interactive-container {
+        padding: 1rem;
+        margin: 0;
+    }
+    
+    /* Mobile navigation optimizations */
+    .puzzle-navigation {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .use-case-indicators,
+    .scenario-indicators {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    /* Mobile button optimizations */
+    .puzzle-actions,
+    .quiz-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    
+    .puzzle-actions .btn,
+    .quiz-actions .btn {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* Tablet Devices (768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .main-content {
+        margin-left: 320px;
+    }
+    
+    .main-content.expanded {
+        margin-left: 70px;
+    }
+    
+    .page-content {
+        padding: 1.5rem 2rem;
+    }
+    
+    .lesson-container {
+        padding: 1.5rem;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .tools-comparison {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+/* ===== SPECIFIC COMPONENT ENHANCEMENTS ===== */
+
+/* Topic Headers - Full Width Utilization */
+.topic-header,
+.lesson-header {
+    width: 100%;
+    margin: 0 0 2rem 0;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+@media (min-width: 1200px) {
+    .topic-header,
+    .lesson-header {
+        padding: 3rem;
+    }
+}
+
+/* Overview Sections - Better Space Usage */
+.overview-container,
+.sagemaker-overview-container {
+    width: 100%;
+    padding: 0;
+}
+
+/* Decision Framework Table - Full Width */
+.decision-table {
+    width: 100%;
+    margin: 0;
+}
+
+/* Workflow Integration - Responsive Flow */
+.workflow-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (max-width: 767px) {
+    .workflow-steps {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .workflow-arrow {
+        transform: rotate(90deg);
+    }
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+/* Responsive spacing utilities */
+.spacing-sm { margin: 1rem 0; }
+.spacing-md { margin: 2rem 0; }
+.spacing-lg { margin: 3rem 0; }
+
+@media (max-width: 767px) {
+    .spacing-sm { margin: 0.5rem 0; }
+    .spacing-md { margin: 1rem 0; }
+    .spacing-lg { margin: 1.5rem 0; }
+}
+
+/* Responsive text utilities */
+.text-responsive {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    line-height: 1.6;
+}
+
+.heading-responsive {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.2;
+}
+
+/* Full-width utilities */
+.full-width {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Container utilities */
+.container-fluid {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+}
+
+@media (min-width: 1200px) {
+    .container-fluid {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .main-content {
+        margin-left: 0;
+        padding: 0;
+    }
+    
+    .sidebar,
+    .puzzle-navigation,
+    .puzzle-actions {
+        display: none;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .page-content {
+        padding: 1rem;
+    }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+/* Focus management for responsive layouts */
+@media (max-width: 767px) {
+    .btn:focus,
+    .nav-link:focus {
+        outline: 2px solid #007bff;
+        outline-offset: 2px;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .main-content,
+    .content-grid,
+    .tools-comparison {
+        transition: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .tool-card,
+    .service-card,
+    .quiz-container {
+        border: 2px solid currentColor;
+    }
+}

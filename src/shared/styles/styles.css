@@ -726,11 +726,13 @@ body {
     margin: 0 auto;
 }
 
-/* Lesson Container Styles */
+/* Lesson Container Styles - Enhanced for Better Space Utilization */
 .lesson-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    width: 100%;
+    max-width: none; /* Remove width constraint for better space usage */
+    margin: 0;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
 }
 
 .lesson-header {
@@ -1221,7 +1223,7 @@ body {
     }
     
     .lesson-container {
-        padding: 15px;
+        padding: 1rem;
     }
     
     .interactive-section {
