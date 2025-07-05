@@ -721,33 +721,37 @@ class Topic3Controller {
                 <div class="decision-framework">
                     <h3><i class="fas fa-compass" aria-hidden="true"></i> Decision Framework</h3>
                     <div class="framework-content">
-                        <div class="decision-table">
-                            <div class="decision-row header">
-                                <div class="decision-cell">Scenario</div>
-                                <div class="decision-cell">Use Data Wrangler</div>
-                                <div class="decision-cell">Use Feature Store</div>
-                            </div>
-                            <div class="decision-row">
-                                <div class="decision-cell">Quick data exploration</div>
-                                <div class="decision-cell">✅ Perfect choice</div>
-                                <div class="decision-cell">❌ Overkill</div>
-                            </div>
-                            <div class="decision-row">
-                                <div class="decision-cell">Production ML pipeline</div>
-                                <div class="decision-cell">⚠️ For preparation only</div>
-                                <div class="decision-cell">✅ Essential</div>
-                            </div>
-                            <div class="decision-row">
-                                <div class="decision-cell">Team feature sharing</div>
-                                <div class="decision-cell">❌ Limited sharing</div>
-                                <div class="decision-cell">✅ Built for sharing</div>
-                            </div>
-                            <div class="decision-row">
-                                <div class="decision-cell">Real-time inference</div>
-                                <div class="decision-cell">❌ Not designed for this</div>
-                                <div class="decision-cell">✅ Optimized for this</div>
-                            </div>
-                        </div>
+                        <table class="decision-table">
+                            <thead>
+                                <tr class="decision-header">
+                                    <th>Scenario</th>
+                                    <th>Use Data Wrangler</th>
+                                    <th>Use Feature Store</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="decision-row">
+                                    <td class="scenario-cell">Quick data exploration</td>
+                                    <td class="positive-cell">✅ Perfect choice</td>
+                                    <td class="negative-cell">❌ Overkill</td>
+                                </tr>
+                                <tr class="decision-row">
+                                    <td class="scenario-cell">Production ML pipeline</td>
+                                    <td class="warning-cell">⚠️ For preparation only</td>
+                                    <td class="positive-cell">✅ Essential</td>
+                                </tr>
+                                <tr class="decision-row">
+                                    <td class="scenario-cell">Team feature sharing</td>
+                                    <td class="negative-cell">❌ Limited sharing</td>
+                                    <td class="positive-cell">✅ Built for sharing</td>
+                                </tr>
+                                <tr class="decision-row">
+                                    <td class="scenario-cell">Real-time inference</td>
+                                    <td class="negative-cell">❌ Not designed for this</td>
+                                    <td class="positive-cell">✅ Optimized for this</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
